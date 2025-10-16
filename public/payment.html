@@ -789,8 +789,16 @@
     // Load plans
     async function loadPlans() {
       try {
-        const response = await fetch(`${API_URL}/subscriptions/plans`);
-        const plans = await response.json();
+        const response = await fetch(`${API_URL}/api/subscriptions/plans`);
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch plans');
+        }
+        
+        const data = await response.json();
+        
+        // Handle both old and new response format
+        const plans = data.data || data;
         
         const planSelect = document.getElementById('planSelect');
         planSelect.innerHTML = '<option value="">-- Pilih Plan --</option>';
@@ -800,7 +808,7 @@
         
         plans.forEach(plan => {
           // Skip free plan
-          if (plan.price > 0) {
+          if (parseFloat(plan.price) > 0) {
             const option = document.createElement('option');
             option.value = plan.id;
             option.textContent = `${plan.display_name} - ${formatCurrency(plan.price)}`;
