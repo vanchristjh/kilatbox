@@ -13,23 +13,33 @@ router.get('/plans', async (req, res) => {
     // Format storage limit untuk display
     const plans = result.rows.map(plan => {
       let storageDisplay;
-      if (plan.storage_limit === -1) {
+      const storageLimitNum = parseInt(plan.storage_limit);
+      
+      if (storageLimitNum === -1) {
         storageDisplay = 'Unlimited';
       } else {
-        const gb = plan.storage_limit / (1024 * 1024 * 1024);
+        const gb = storageLimitNum / (1024 * 1024 * 1024);
         storageDisplay = `${gb} GB`;
       }
       
       return {
         ...plan,
+        storage_limit: storageLimitNum,
         storage_display: storageDisplay
       };
     });
     
-    res.json(plans);
+    res.json({
+      success: true,
+      data: plans
+    });
   } catch (error) {
     console.error('Error fetching plans:', error);
-    res.status(500).json({ error: 'Failed to fetch subscription plans' });
+    res.status(500).json({ 
+      success: false,
+      message: 'Failed to fetch subscription plans',
+      error: error.message 
+    });
   }
 });
 

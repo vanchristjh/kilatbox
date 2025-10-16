@@ -613,7 +613,10 @@
                     throw new Error('Gagal memuat paket subscription');
                 }
 
-                const plans = await plansRes.json();
+                const plansData = await plansRes.json();
+                
+                // Handle both old and new response format
+                const plans = plansData.data || plansData;
                 
                 if (!plans || plans.length === 0) {
                     throw new Error('Tidak ada paket subscription tersedia');
