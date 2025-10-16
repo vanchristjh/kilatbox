@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: kilatbox-db
+    environment:
+      POSTGRES_USER: kilatbox_user
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-changeme}
+      POSTGRES_DB: kilatbox
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    networks:
+      - kilatbox-network
+    restart: unless-stopped
+
+  # KilatBox Application
+  app:
+    build: .
+    container_name: kilatbox-app
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DATABASE_URL: postgres://kilatbox_user:${DB_PASSWORD:-changeme}@postgres:5432/kilatbox
+      CLOUDKILAT_S3_ENDPOINT: ${CLOUDKILAT_S3_ENDPOINT}
+      CLOUDKILAT_ACCESS_KEY: ${CLOUDKILAT_ACCESS_KEY}
+      CLOUDKILAT_SECRET_KEY: ${CLOUDKILAT_SECRET_KEY}
+      S3_BUCKET_NAME: ${S3_BUCKET_NAME}
+      JWT_SECRET: ${JWT_SECRET}
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    networks:
+      - kilatbox-network
+    restart: unless-stopped
+    volumes:
+      - ./public:/app/public:ro
+
+  # Nginx (Optional - untuk production dengan SSL)
+  # nginx:
+  #   image: nginx:alpine
+  #   container_name: kilatbox-nginx
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   volumes:
+  #     - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+  #     - /etc/letsencrypt:/etc/letsencrypt:ro
+  #   depends_on:
+  #     - app
+  #   networks:
+  #     - kilatbox-network
+  #   restart: unless-stopped
+
+volumes:
+  postgres_data:
+
+networks:
+  kilatbox-network:
+    driver: bridge

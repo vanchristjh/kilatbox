@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Upload - KilatBox</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        h1 {
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .section h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        input[type="email"],
+        input[type="password"],
+        input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+        }
+        
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .progress {
+            width: 100%;
+            height: 30px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 10px 0;
+            display: none;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .log {
+            background: #1a1a1a;
+            color: #00ff00;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 20px;
+        }
+        
+        .log-entry {
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+        
+        .log-entry.error {
+            color: #ff6b6b;
+        }
+        
+        .log-entry.success {
+            color: #51cf66;
+        }
+        
+        .log-entry.info {
+            color: #74c0fc;
+        }
+        
+        .status {
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .status.error {
+            background: #ffe3e3;
+            color: #c92a2a;
+        }
+        
+        .status.success {
+            background: #d3f9d8;
+            color: #2b8a3e;
+        }
+        
+        .status.info {
+            background: #d0ebff;
+            color: #1971c2;
+        }
+        
+        .file-info {
+            background: #fff;
+            padding: 10px;
+            border-radius: 6px;
+            margin: 10px 0;
+            border-left: 4px solid #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Test Upload KilatBox</h1>
+        
+        <!-- Step 1: Login -->
+        <div class="section" id="loginSection">
+            <h2>1️⃣ Login</h2>
+            <input type="email" id="emailInput" placeholder="Email" value="volodyaa@gmail.com">
+            <input type="password" id="passwordInput" placeholder="Password" type="password">
+            <button onclick="doLogin()">Login</button>
+        </div>
+        
+        <!-- Step 2: Upload -->
+        <div class="section" id="uploadSection" style="display: none;">
+            <h2>2️⃣ Upload File</h2>
+            <div class="status success">✅ Login berhasil!</div>
+            <input type="file" id="fileInput" accept="*/*">
+            <button onclick="doUpload()">Upload File</button>
+            <div class="progress" id="progressDiv">
+                <div class="progress-bar" id="progressBar">0%</div>
+            </div>
+        </div>
+        
+        <!-- Step 3: Results -->
+        <div class="section" id="resultsSection" style="display: none;">
+            <h2>3️⃣ Hasil</h2>
+            <div id="resultStatus"></div>
+            <div id="fileInfo"></div>
+        </div>
+        
+        <!-- Log Console -->
+        <div class="log" id="logConsole">
+            <div class="log-entry info">📋 Siap untuk test upload...</div>
+        </div>
+    </div>
+
+    <script>
+        let authToken = null;
+        const API_BASE_URL = 'http://localhost:3000/api';
+        
+        function log(message, type = 'info') {
+            const logConsole = document.getElementById('logConsole');
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            const timestamp = new Date().toLocaleTimeString('id-ID');
+            entry.textContent = `[${timestamp}] ${message}`;
+            logConsole.appendChild(entry);
+            logConsole.scrollTop = logConsole.scrollHeight;
+        }
+        
+        async function doLogin() {
+            const email = document.getElementById('emailInput').value;
+            const password = document.getElementById('passwordInput').value;
+            
+            if (!email || !password) {
+                log('❌ Email dan password harus diisi!', 'error');
+                return;
+            }
+            
+            log(`🔐 Mencoba login dengan email: ${email}...`, 'info');
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/auth/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.token) {
+                    authToken = data.token;
+                    log('✅ Login berhasil!', 'success');
+                    log(`📝 Token: ${authToken.substring(0, 30)}...`, 'info');
+                    
+                    // Show upload section
+                    document.getElementById('loginSection').style.display = 'none';
+                    document.getElementById('uploadSection').style.display = 'block';
+                } else {
+                    log(`❌ Login gagal: ${data.message}`, 'error');
+                    log(`💡 Response: ${JSON.stringify(data, null, 2)}`, 'info');
+                }
+            } catch (error) {
+                log(`❌ Error: ${error.message}`, 'error');
+            }
+        }
+        
+        function doUpload() {
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                log('❌ Pilih file terlebih dahulu!', 'error');
+                return;
+            }
+            
+            log(`📤 Memulai upload: ${file.name} (${formatFileSize(file.size)})`, 'info');
+            
+            const formData = new FormData();
+            formData.append('file', file);
+            
+            const progressDiv = document.getElementById('progressDiv');
+            const progressBar = document.getElementById('progressBar');
+            
+            progressDiv.style.display = 'block';
+            progressBar.style.width = '0%';
+            progressBar.textContent = '0%';
+            
+            const xhr = new XMLHttpRequest();
+            
+            // Upload progress
+            xhr.upload.addEventListener('progress', (e) => {
+                if (e.lengthComputable) {
+                    const percentComplete = Math.round((e.loaded / e.total) * 100);
+                    progressBar.style.width = percentComplete + '%';
+                    progressBar.textContent = percentComplete + '%';
+                    log(`⏳ Upload progress: ${percentComplete}%`, 'info');
+                }
+            });
+            
+            // Upload complete
+            xhr.addEventListener('load', () => {
+                log(`📊 Response status: ${xhr.status}`, 'info');
+                
+                try {
+                    const data = JSON.parse(xhr.responseText);
+                    log(`📋 Response: ${JSON.stringify(data, null, 2)}`, 'info');
+                    
+                    if (xhr.status === 201 || xhr.status === 200) {
+                        if (data.success) {
+                            log('✅ Upload berhasil!', 'success');
+                            
+                            // Show results
+                            document.getElementById('resultsSection').style.display = 'block';
+                            document.getElementById('resultStatus').className = 'status success';
+                            document.getElementById('resultStatus').innerHTML = '✅ File berhasil diupload!';
+                            
+                            const fileInfo = document.getElementById('fileInfo');
+                            fileInfo.className = 'file-info';
+                            fileInfo.innerHTML = `
+                                <strong>File ID:</strong> ${data.data.id}<br>
+                                <strong>Nama:</strong> ${data.data.file_name}<br>
+                                <strong>Ukuran:</strong> ${formatFileSize(data.data.file_size)}<br>
+                                <strong>URL:</strong> <a href="${data.data.file_url}" target="_blank">Lihat File</a>
+                            `;
+                        } else {
+                            log(`❌ Upload gagal: ${data.message}`, 'error');
+                        }
+                    } else {
+                        log(`❌ Error: ${data.message || 'Unknown error'}`, 'error');
+                        
+                        document.getElementById('resultsSection').style.display = 'block';
+                        document.getElementById('resultStatus').className = 'status error';
+                        document.getElementById('resultStatus').innerHTML = `❌ Upload gagal: ${data.message}`;
+                    }
+                } catch (error) {
+                    log(`❌ Parse error: ${error.message}`, 'error');
+                    log(`📄 Raw response: ${xhr.responseText}`, 'info');
+                }
+                
+                progressDiv.style.display = 'none';
+            });
+            
+            // Upload error
+            xhr.addEventListener('error', () => {
+                log('❌ Network error during upload', 'error');
+                progressDiv.style.display = 'none';
+                
+                document.getElementById('resultsSection').style.display = 'block';
+                document.getElementById('resultStatus').className = 'status error';
+                document.getElementById('resultStatus').innerHTML = '❌ Network error. Pastikan server berjalan!';
+            });
+            
+            // Send request
+            log(`📡 Sending request to: ${API_BASE_URL}/files/upload`, 'info');
+            log(`🔑 Authorization: Bearer ${authToken.substring(0, 20)}...`, 'info');
+            
+            xhr.open('POST', `${API_BASE_URL}/files/upload`);
+            xhr.setRequestHeader('Authorization', `Bearer ${authToken}`);
+            xhr.send(formData);
+        }
+        
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 B';
+            const k = 1024;
+            const sizes = ['B', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+        }
+        
+        // Allow Enter key for login
+        document.getElementById('passwordInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                doLogin();
+            }
+        });
+    </script>
+</body>
+</html>

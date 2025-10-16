@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment - KilatBox</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6366f1;
+      --secondary: #8b5cf6;
+      --accent: #14b8a6;
+      --dark-bg: #0a0a0f;
+      --dark-surface: #16161d;
+      --dark-card: #1e1e2a;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --info: #3b82f6;
+      --border-color: rgba(148, 163, 184, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--dark-bg);
+      min-height: 100vh;
+      color: var(--text-primary);
+      position: relative;
+    }
+
+    /* Animated Background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(ellipse at top center, #1e1b4b 0%, transparent 50%),
+        radial-gradient(ellipse at bottom right, #1e293b 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+        linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: var(--dark-surface) !important;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 0;
+      position: relative;
+      z-index: 1000;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-link {
+      color: var(--text-secondary) !important;
+      font-weight: 600;
+      padding: 0.5rem 1rem !important;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white !important;
+      transform: translateY(-2px);
+    }
+
+    /* Main Container */
+    .main-container {
+      position: relative;
+      z-index: 1;
+      padding: 2rem 0;
+    }
+
+    /* Page Header */
+    .page-header {
+      background: var(--dark-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      animation: fadeInUp 0.6s ease;
+    }
+
+    .page-header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-header p {
+      color: var(--text-secondary);
+      margin-bottom: 0;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Card */
+    .modern-card {
+      background: var(--dark-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.6s ease;
+      animation-delay: 0.1s;
+      animation-fill-mode: both;
+    }
+
+    .modern-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .card-title i {
+      font-size: 1.75rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Form Elements */
+    .form-label {
+      color: var(--text-primary);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .form-control, .form-select {
+      background: var(--dark-surface);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .form-control:focus, .form-select:focus {
+      background: var(--dark-surface);
+      border-color: var(--primary);
+      color: var(--text-primary);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    }
+
+    .form-control::placeholder {
+      color: var(--text-secondary);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    /* Plan Details Box */
+    .plan-details-box {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .plan-details-box h4 {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .plan-detail-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .plan-detail-item:last-child {
+      border-bottom: none;
+    }
+
+    .plan-detail-label {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .plan-detail-value {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* Bank Info Box */
+    .bank-info-box {
+      background: linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(16, 185, 129, 0.1));
+      border: 1px solid rgba(20, 184, 166, 0.3);
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .bank-info-box h4 {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .bank-info-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+    }
+
+    .bank-info-label {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .bank-info-value {
+      color: var(--text-primary);
+      font-weight: 700;
+      font-family: 'Courier New', monospace;
+    }
+
+    /* Button */
+    .btn-primary-gradient {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border: none;
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(99, 102, 241, 0.4);
+      width: 100%;
+    }
+
+    .btn-primary-gradient:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(99, 102, 241, 0.6);
+    }
+
+    .btn-primary-gradient:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .btn-success-gradient {
+      background: linear-gradient(135deg, var(--success), var(--accent));
+      border: none;
+      color: white;
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 15px rgba(16, 185, 129, 0.3);
+    }
+
+    .btn-success-gradient:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(16, 185, 129, 0.5);
+    }
+
+    .btn-danger-gradient {
+      background: linear-gradient(135deg, var(--danger), #dc2626);
+      border: none;
+      color: white;
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 15px rgba(239, 68, 68, 0.3);
+    }
+
+    .btn-danger-gradient:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(239, 68, 68, 0.5);
+    }
+
+    /* Alert */
+    .alert-modern {
+      border-radius: 15px;
+      border: none;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1.5rem;
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .alert-success-modern {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(20, 184, 166, 0.2));
+      border-left: 4px solid var(--success);
+      color: var(--success);
+    }
+
+    .alert-error-modern {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(220, 38, 38, 0.2));
+      border-left: 4px solid var(--danger);
+      color: var(--danger);
+    }
+
+    .alert-info-modern {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.2));
+      border-left: 4px solid var(--info);
+      color: var(--info);
+    }
+
+    /* Payment Item */
+    .payment-item {
+      background: var(--dark-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .payment-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+    }
+
+    .payment-item.pending::before {
+      background: var(--warning);
+    }
+
+    .payment-item.completed::before {
+      background: var(--success);
+    }
+
+    .payment-item.rejected::before {
+      background: var(--danger);
+    }
+
+    .payment-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+
+    .payment-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 1rem;
+    }
+
+    .payment-item-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0;
+    }
+
+    .payment-item-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .payment-info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .payment-info-label {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .payment-info-value {
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    /* Status Badge */
+    .status-badge {
+      display: inline-block;
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .status-pending {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(251, 191, 36, 0.2));
+      color: var(--warning);
+      border: 1px solid var(--warning);
+    }
+
+    .status-completed {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(20, 184, 166, 0.2));
+      color: var(--success);
+      border: 1px solid var(--success);
+    }
+
+    .status-rejected {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(220, 38, 38, 0.2));
+      color: var(--danger);
+      border: 1px solid var(--danger);
+    }
+
+    /* Payment Actions */
+    .payment-actions {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .payment-actions button {
+      flex: 1;
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 3rem 2rem;
+      color: var(--text-secondary);
+    }
+
+    .empty-state i {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      opacity: 0.3;
+    }
+
+    .empty-state p {
+      font-size: 1.1rem;
+      margin: 0;
+    }
+
+    /* Loading Spinner */
+    .spinner {
+      display: inline-block;
+      width: 1rem;
+      height: 1rem;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-right: 0.5rem;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .page-header h1 {
+        font-size: 1.5rem;
+      }
+
+      .modern-card {
+        padding: 1.5rem;
+      }
+
+      .payment-actions {
+        flex-direction: column;
+      }
+
+      .payment-item-info {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--dark-bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--primary), var(--secondary));
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, var(--secondary), var(--primary));
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="dashboard.html">
+        <i class="bi bi-cloud-arrow-up-fill"></i>
+        KilatBox
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="dashboard.html">
+              <i class="bi bi-house-fill"></i> Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="plans.html">
+              <i class="bi bi-star-fill"></i> Plans
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="payment.html">
+              <i class="bi bi-credit-card-fill"></i> Payment
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container main-container">
+    <!-- Page Header -->
+    <div class="page-header">
+      <h1><i class="bi bi-credit-card-2-front-fill"></i> Payment Center</h1>
+      <p>Kelola pembayaran dan upgrade subscription Anda dengan mudah</p>
+    </div>
+
+    <!-- Alert Container -->
+    <div id="alertContainer"></div>
+
+    <div class="row">
+      <!-- Left Column: Payment Form -->
+      <div class="col-lg-6">
+        <div class="modern-card">
+          <h3 class="card-title">
+            <i class="bi bi-plus-circle-fill"></i>
+            Buat Pembayaran Baru
+          </h3>
+
+          <form id="paymentForm">
+            <div class="mb-3">
+              <label for="planSelect" class="form-label">
+                <i class="bi bi-box-seam"></i> Pilih Plan
+              </label>
+              <select id="planSelect" class="form-select" required>
+                <option value="">-- Pilih Plan --</option>
+              </select>
+            </div>
+
+            <div id="planDetails" class="plan-details-box" style="display: none;">
+              <h4><i class="bi bi-info-circle-fill"></i> Detail Plan</h4>
+              <div class="plan-detail-item">
+                <span class="plan-detail-label">Plan</span>
+                <span class="plan-detail-value" id="planName">-</span>
+              </div>
+              <div class="plan-detail-item">
+                <span class="plan-detail-label">Storage</span>
+                <span class="plan-detail-value" id="planStorage">-</span>
+              </div>
+              <div class="plan-detail-item">
+                <span class="plan-detail-label">Harga</span>
+                <span class="plan-detail-value" id="planPrice">-</span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="paymentMethod" class="form-label">
+                <i class="bi bi-wallet2"></i> Metode Pembayaran
+              </label>
+              <select id="paymentMethod" class="form-select" required>
+                <option value="manual_transfer">Transfer Bank</option>
+                <option value="ewallet">E-Wallet</option>
+                <option value="credit_card">Kartu Kredit</option>
+              </select>
+            </div>
+
+            <div class="bank-info-box">
+              <h4><i class="bi bi-bank"></i> Informasi Rekening</h4>
+              <div class="bank-info-item">
+                <span class="bank-info-label">Bank</span>
+                <span class="bank-info-value">BCA</span>
+              </div>
+              <div class="bank-info-item">
+                <span class="bank-info-label">No. Rekening</span>
+                <span class="bank-info-value">1234567890</span>
+              </div>
+              <div class="bank-info-item">
+                <span class="bank-info-label">Atas Nama</span>
+                <span class="bank-info-value">KilatBox Indonesia</span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="notes" class="form-label">
+                <i class="bi bi-pencil-square"></i> Catatan (Optional)
+              </label>
+              <textarea id="notes" class="form-control" rows="3" placeholder="Masukkan catatan jika ada..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary-gradient" id="submitBtn">
+              <i class="bi bi-send-fill"></i> Buat Pembayaran
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Right Column: Pending Payments -->
+      <div class="col-lg-6">
+        <div class="modern-card">
+          <h3 class="card-title">
+            <i class="bi bi-hourglass-split"></i>
+            Pembayaran Pending
+          </h3>
+          <div id="pendingPayments">
+            <div class="empty-state">
+              <i class="bi bi-hourglass-split"></i>
+              <p>Memuat data...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment History -->
+    <div class="modern-card">
+      <h3 class="card-title">
+        <i class="bi bi-clock-history"></i>
+        Riwayat Pembayaran
+      </h3>
+      <div id="paymentHistory">
+        <div class="empty-state">
+          <i class="bi bi-clock-history"></i>
+          <p>Memuat data...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const API_URL = 'http://localhost:3000/api';
+    let token = localStorage.getItem('token');
+    let selectedPlanData = null;
+
+    // Check authentication
+    if (!token) {
+      window.location.href = 'index.html';
+    }
+
+    // Show alert
+    function showAlert(message, type = 'info') {
+      const alertContainer = document.getElementById('alertContainer');
+      const alertClass = type === 'success' ? 'alert-success-modern' : 
+                        type === 'error' ? 'alert-error-modern' : 'alert-info-modern';
+      const icon = type === 'success' ? 'check-circle-fill' : 
+                   type === 'error' ? 'exclamation-triangle-fill' : 'info-circle-fill';
+      
+      alertContainer.innerHTML = `
+        <div class="alert-modern ${alertClass}">
+          <i class="bi bi-${icon}"></i> ${message}
+        </div>
+      `;
+      
+      setTimeout(() => {
+        alertContainer.innerHTML = '';
+      }, 5000);
+    }
+
+    // Format currency
+    function formatCurrency(amount) {
+      return new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+        minimumFractionDigits: 0
+      }).format(amount);
+    }
+
+    // Format date
+    function formatDate(dateString) {
+      return new Date(dateString).toLocaleDateString('id-ID', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    }
+
+    // Load plans
+    async function loadPlans() {
+      try {
+        const response = await fetch(`${API_URL}/subscriptions/plans`);
+        const plans = await response.json();
+        
+        const planSelect = document.getElementById('planSelect');
+        planSelect.innerHTML = '<option value="">-- Pilih Plan --</option>';
+        
+        // Get pre-selected plan from localStorage
+        const selectedPlanId = localStorage.getItem('selectedPlanId');
+        
+        plans.forEach(plan => {
+          // Skip free plan
+          if (plan.price > 0) {
+            const option = document.createElement('option');
+            option.value = plan.id;
+            option.textContent = `${plan.display_name} - ${formatCurrency(plan.price)}`;
+            option.dataset.plan = JSON.stringify(plan);
+            
+            // Auto-select if this is the plan from plans.html
+            if (selectedPlanId && plan.id == selectedPlanId) {
+              option.selected = true;
+            }
+            
+            planSelect.appendChild(option);
+          }
+        });
+        
+        // Trigger change event to show details if plan was pre-selected
+        if (selectedPlanId) {
+          planSelect.dispatchEvent(new Event('change'));
+          // Clear from localStorage
+          localStorage.removeItem('selectedPlanId');
+          localStorage.removeItem('selectedPlanName');
+        }
+      } catch (error) {
+        console.error('Error loading plans:', error);
+        showAlert('Gagal memuat daftar plan', 'error');
+      }
+    }
+
+    // Show plan details
+    document.getElementById('planSelect').addEventListener('change', function() {
+      const selectedOption = this.options[this.selectedIndex];
+      
+      if (selectedOption.value) {
+        selectedPlanData = JSON.parse(selectedOption.dataset.plan);
+        document.getElementById('planName').textContent = selectedPlanData.display_name;
+        document.getElementById('planStorage').textContent = selectedPlanData.storage_display;
+        document.getElementById('planPrice').textContent = formatCurrency(selectedPlanData.price);
+        document.getElementById('planDetails').style.display = 'block';
+      } else {
+        document.getElementById('planDetails').style.display = 'none';
+        selectedPlanData = null;
+      }
+    });
+
+    // Create payment
+    document.getElementById('paymentForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const planId = document.getElementById('planSelect').value;
+      const paymentMethod = document.getElementById('paymentMethod').value;
+      const notes = document.getElementById('notes').value;
+
+      if (!planId) {
+        showAlert('Silakan pilih plan terlebih dahulu', 'error');
+        return;
+      }
+
+      const submitBtn = document.getElementById('submitBtn');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="spinner"></span> Membuat pembayaran...';
+
+      try {
+        const response = await fetch(`${API_URL}/payments/create`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({
+            plan_id: planId,
+            payment_method: paymentMethod,
+            notes: notes
+          })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          showAlert(`Pembayaran berhasil dibuat! Transaction ID: ${data.payment_info.transaction_id}`, 'success');
+          document.getElementById('paymentForm').reset();
+          document.getElementById('planDetails').style.display = 'none';
+          loadPendingPayments();
+          loadPaymentHistory();
+        } else {
+          showAlert(data.error || 'Gagal membuat pembayaran', 'error');
+        }
+      } catch (error) {
+        console.error('Error creating payment:', error);
+        showAlert('Terjadi kesalahan saat membuat pembayaran', 'error');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="bi bi-send-fill"></i> Buat Pembayaran';
+      }
+    });
+
+    // Load pending payments
+    async function loadPendingPayments() {
+      try {
+        const response = await fetch(`${API_URL}/payments/pending`, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        const data = await response.json();
+        const container = document.getElementById('pendingPayments');
+
+        if (data.pending_payments && data.pending_payments.length > 0) {
+          container.innerHTML = data.pending_payments.map(payment => `
+            <div class="payment-item pending">
+              <div class="payment-item-header">
+                <h4 class="payment-item-title">${payment.plan_name}</h4>
+                <span class="status-badge status-pending">PENDING</span>
+              </div>
+              <div class="payment-item-info">
+                <div class="payment-info-item">
+                  <span class="payment-info-label"><i class="bi bi-hash"></i> Transaction ID</span>
+                  <span class="payment-info-value">${payment.transaction_id}</span>
+                </div>
+                <div class="payment-info-item">
+                  <span class="payment-info-label"><i class="bi bi-cash"></i> Jumlah</span>
+                  <span class="payment-info-value">${formatCurrency(payment.amount)}</span>
+                </div>
+                <div class="payment-info-item">
+                  <span class="payment-info-label"><i class="bi bi-wallet2"></i> Metode</span>
+                  <span class="payment-info-value">${payment.payment_method}</span>
+                </div>
+                <div class="payment-info-item">
+                  <span class="payment-info-label"><i class="bi bi-calendar"></i> Dibuat</span>
+                  <span class="payment-info-value">${formatDate(payment.created_at)}</span>
+                </div>
+              </div>
+              ${payment.notes ? `<p style="color: var(--text-secondary); margin-top: 0.5rem;"><i class="bi bi-sticky"></i> ${payment.notes}</p>` : ''}
+              <div class="payment-actions">
+                <button class="btn-success-gradient" onclick="confirmPayment(${payment.id})">
+                  <i class="bi bi-check-circle-fill"></i> Konfirmasi Pembayaran
+                </button>
+                <button class="btn-danger-gradient" onclick="cancelPayment(${payment.id})">
+                  <i class="bi bi-x-circle-fill"></i> Batalkan
+                </button>
+              </div>
+            </div>
+          `).join('');
+        } else {
+          container.innerHTML = `
+            <div class="empty-state">
+              <i class="bi bi-inbox"></i>
+              <p>Tidak ada pembayaran pending</p>
+            </div>
+          `;
+        }
+      } catch (error) {
+        console.error('Error loading pending payments:', error);
+        document.getElementById('pendingPayments').innerHTML = `
+          <div class="empty-state">
+            <i class="bi bi-exclamation-triangle"></i>
+            <p>Gagal memuat data</p>
+          </div>
+        `;
+      }
+    }
+
+    // Load payment history
+    async function loadPaymentHistory() {
+      try {
+        const response = await fetch(`${API_URL}/payments/history`, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        const data = await response.json();
+        const container = document.getElementById('paymentHistory');
+
+        if (data.payments && data.payments.length > 0) {
+          container.innerHTML = data.payments.map(payment => {
+            const statusClass = payment.status === 'completed' ? 'completed' : 
+                               payment.status === 'pending' ? 'pending' : 'rejected';
+            const statusBadgeClass = `status-${payment.status}`;
+            const statusText = payment.status === 'completed' ? 'SELESAI' :
+                             payment.status === 'pending' ? 'PENDING' : 'DITOLAK';
+            
+            return `
+              <div class="payment-item ${statusClass}">
+                <div class="payment-item-header">
+                  <h4 class="payment-item-title">${payment.plan_name}</h4>
+                  <span class="status-badge ${statusBadgeClass}">${statusText}</span>
+                </div>
+                <div class="payment-item-info">
+                  <div class="payment-info-item">
+                    <span class="payment-info-label"><i class="bi bi-hash"></i> Transaction ID</span>
+                    <span class="payment-info-value">${payment.transaction_id}</span>
+                  </div>
+                  <div class="payment-info-item">
+                    <span class="payment-info-label"><i class="bi bi-cash"></i> Jumlah</span>
+                    <span class="payment-info-value">${formatCurrency(payment.amount)}</span>
+                  </div>
+                  <div class="payment-info-item">
+                    <span class="payment-info-label"><i class="bi bi-wallet2"></i> Metode</span>
+                    <span class="payment-info-value">${payment.payment_method}</span>
+                  </div>
+                  <div class="payment-info-item">
+                    <span class="payment-info-label"><i class="bi bi-calendar"></i> Dibuat</span>
+                    <span class="payment-info-value">${formatDate(payment.created_at)}</span>
+                  </div>
+                  ${payment.paid_at ? `
+                    <div class="payment-info-item">
+                      <span class="payment-info-label"><i class="bi bi-check-circle"></i> Dibayar</span>
+                      <span class="payment-info-value">${formatDate(payment.paid_at)}</span>
+                    </div>
+                  ` : ''}
+                </div>
+              </div>
+            `;
+          }).join('');
+        } else {
+          container.innerHTML = `
+            <div class="empty-state">
+              <i class="bi bi-inbox"></i>
+              <p>Belum ada riwayat pembayaran</p>
+            </div>
+          `;
+        }
+      } catch (error) {
+        console.error('Error loading payment history:', error);
+        document.getElementById('paymentHistory').innerHTML = `
+          <div class="empty-state">
+            <i class="bi bi-exclamation-triangle"></i>
+            <p>Gagal memuat data</p>
+          </div>
+        `;
+      }
+    }
+
+    // Confirm payment
+    async function confirmPayment(paymentId) {
+      if (!confirm('Apakah Anda yakin sudah melakukan pembayaran?')) {
+        return;
+      }
+
+      try {
+        const response = await fetch(`${API_URL}/payments/confirm/${paymentId}`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          showAlert(data.message, 'success');
+          loadPendingPayments();
+          loadPaymentHistory();
+          
+          // Redirect to dashboard after 2 seconds
+          setTimeout(() => {
+            window.location.href = 'dashboard.html';
+          }, 2000);
+        } else {
+          showAlert(data.error || 'Gagal mengkonfirmasi pembayaran', 'error');
+        }
+      } catch (error) {
+        console.error('Error confirming payment:', error);
+        showAlert('Terjadi kesalahan saat mengkonfirmasi pembayaran', 'error');
+      }
+    }
+
+    // Cancel payment
+    async function cancelPayment(paymentId) {
+      if (!confirm('Apakah Anda yakin ingin membatalkan pembayaran ini?')) {
+        return;
+      }
+
+      try {
+        const response = await fetch(`${API_URL}/payments/cancel/${paymentId}`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          showAlert(data.message, 'success');
+          loadPendingPayments();
+          loadPaymentHistory();
+        } else {
+          showAlert(data.error || 'Gagal membatalkan pembayaran', 'error');
+        }
+      } catch (error) {
+        console.error('Error canceling payment:', error);
+        showAlert('Terjadi kesalahan saat membatalkan pembayaran', 'error');
+      }
+    }
+
+    // Initialize
+    loadPlans();
+    loadPendingPayments();
+    loadPaymentHistory();
+  </script>
+</body>
+</html>

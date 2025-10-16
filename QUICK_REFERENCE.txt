@@ -1,0 +1,158 @@
+╔═══════════════════════════════════════════════════════════════════╗
+║                                                                   ║
+║              🚀 KilatBox - Quick Reference Card                  ║
+║                                                                   ║
+╚═══════════════════════════════════════════════════════════════════╝
+
+📍 CURRENT LOCATION
+──────────────────────────────────────────────────────────────────
+Directory: D:\PROJECT\ITB\kilatbox
+Status   : ✅ Ready (Database Created, Tables Created)
+
+
+🔑 CLOUDKILAT CREDENTIALS
+──────────────────────────────────────────────────────────────────
+Endpoint   : https://s3-id-jkt-1.kilatstorage.id
+Access Key : 00f40347ce0451733558
+Secret Key : ⚠️  GET FROM CLOUDKILAT PANEL ⚠️
+
+👉 Login: https://panel.cloudkilat.com
+   → Menu "API Keys"
+   → Cari Access Key: 00f40347ce0451733558
+   → Copy Secret Access Key
+
+
+⚠️  WHAT YOU NEED TO DO NOW
+──────────────────────────────────────────────────────────────────
+
+1️⃣  EDIT .env FILE
+    Command : notepad .env
+    
+    Change:
+    ───────
+    CLOUDKILAT_SECRET_KEY=your_secret_key_here
+    DATABASE_URL=postgres://user:password@localhost:5432/kilatbox
+    
+    To:
+    ───
+    CLOUDKILAT_SECRET_KEY=<paste_secret_key_from_cloudkilat>
+    DATABASE_URL=postgres://postgres:<your_pg_password>@localhost:5432/kilatbox
+
+
+2️⃣  CREATE BUCKET IN CLOUDKILAT
+    → Login to https://panel.cloudkilat.com
+    → Open "Kilat Storage"
+    → Click "Create Bucket"
+    → Name: kilatbox-storage
+    → Region: Jakarta (id-jkt-1)
+    → Click "Create"
+
+
+3️⃣  TEST CONNECTION
+    Command: npm run test:cloudkilat
+    
+    Expected:
+    ─────────
+    ✅ All tests passed!
+    Your CloudKilat configuration is working correctly.
+
+
+4️⃣  START SERVER
+    Command: npm start
+    
+    Expected:
+    ─────────
+    ✅ Server running on: http://localhost:3000
+
+
+5️⃣  OPEN BROWSER
+    URL: http://localhost:3000
+    
+    Actions:
+    ────────
+    1. Click "Daftar Sekarang"
+    2. Register new user
+    3. Upload file
+    4. Verify in CloudKilat Panel
+
+
+🎯 QUICK COMMANDS
+──────────────────────────────────────────────────────────────────
+Edit .env           : notepad .env
+Test CloudKilat     : npm run test:cloudkilat
+Start server        : npm start
+Start dev mode      : npm run dev
+Check database      : psql -U postgres -d kilatbox
+View tables         : psql -U postgres -d kilatbox -c "\dt"
+View users          : psql -U postgres -d kilatbox -c "SELECT * FROM users;"
+
+
+📚 DOCUMENTATION FILES
+──────────────────────────────────────────────────────────────────
+EDIT_ENV_FIRST.md              ⭐ START HERE - Edit .env guide
+SETUP_WITH_CREDENTIALS.md      ⭐ Complete setup guide  
+CLOUDKILAT_CONFIG.md           📖 CloudKilat detailed config
+QUICKSTART.md                  🚀 5-minute quick start
+API_TESTING.md                 🧪 API testing guide
+LAPORAN.md                     📊 Complete project report
+
+
+🐛 COMMON ISSUES & SOLUTIONS
+──────────────────────────────────────────────────────────────────
+
+Issue: npm run test:cloudkilat fails
+Fix  : 1. Check CLOUDKILAT_SECRET_KEY in .env
+       2. Make sure bucket exists in CloudKilat
+
+Issue: Database connection error
+Fix  : 1. Check PostgreSQL is running
+       2. Verify DATABASE_URL in .env
+       3. Test: psql -U postgres -d kilatbox
+
+Issue: Port 3000 already in use
+Fix  : 1. Edit .env, change PORT=3001
+       2. Restart server
+
+Issue: Upload fails
+Fix  : 1. Check bucket permissions
+       2. Verify credentials
+       3. Run: npm run test:cloudkilat
+
+
+📞 HELP & SUPPORT
+──────────────────────────────────────────────────────────────────
+CloudKilat Panel : https://panel.cloudkilat.com
+CloudKilat Docs  : https://docs.cloudkilat.com
+CloudKilat Email : support@cloudkilat.com
+
+
+✅ SETUP CHECKLIST
+──────────────────────────────────────────────────────────────────
+[✅] Directory is correct (D:\PROJECT\ITB\kilatbox)
+[✅] Dependencies installed (node_modules exists)
+[✅] Database created (kilatbox)
+[✅] Tables created (users, files)
+[⚠️ ] .env configured (SECRET_KEY, DATABASE_URL)
+[⚠️ ] CloudKilat bucket created (kilatbox-storage)
+[⚠️ ] Test passed (npm run test:cloudkilat)
+[⚠️ ] Server running (npm start)
+[⚠️ ] Can register user
+[⚠️ ] Can upload file
+
+
+🎉 AFTER EVERYTHING WORKS
+──────────────────────────────────────────────────────────────────
+1. Test all features (upload, download, delete)
+2. Check files appear in CloudKilat Panel
+3. Monitor storage usage
+4. Read LAPORAN.md for complete documentation
+5. Deploy to production (optional)
+
+
+╔═══════════════════════════════════════════════════════════════════╗
+║                                                                   ║
+║  💡 TIP: Print or save this file for quick reference!           ║
+║                                                                   ║
+║  Next: Edit .env → Create bucket → Test → Start server          ║
+║                                                                   ║
+╚═══════════════════════════════════════════════════════════════════╝
