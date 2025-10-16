@@ -1,4 +1,4 @@
--- Database Schema for KilatBox
+-- Database Schema for Exora ID
 -- Sistem Manajemen File Berbasis Cloud dengan Subscription Plans
 
 -- Drop tables if exists (untuk reset)

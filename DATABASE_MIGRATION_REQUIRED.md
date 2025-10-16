@@ -14,7 +14,7 @@ Ini karena tabel-tabel baru untuk sistem subscription belum dibuat di database.
 
 ### Option 1: Via psql Command Line
 ```bash
-psql -U postgres -d kilatbox_db -f kilatbox/schema.sql
+psql -U postgres -d Exora ID_db -f Exora ID/schema.sql
 ```
 
 ### Option 2: Via PowerShell (Windows)
@@ -23,16 +23,16 @@ psql -U postgres -d kilatbox_db -f kilatbox/schema.sql
 psql -U postgres
 
 # Di dalam psql prompt:
-\c kilatbox_db
-\i kilatbox/schema.sql
+\c Exora ID_db
+\i Exora ID/schema.sql
 \q
 ```
 
 ### Option 3: Copy-Paste Manual
-1. Buka file `kilatbox/schema.sql`
+1. Buka file `Exora ID/schema.sql`
 2. Copy seluruh isinya
 3. Buka pgAdmin atau psql
-4. Connect ke database `kilatbox_db`
+4. Connect ke database `Exora ID_db`
 5. Paste dan execute
 
 ---
@@ -91,15 +91,15 @@ Expected output:
 
 ## 📞 Jika Ada Masalah
 
-### Error: "database kilatbox_db does not exist"
+### Error: "database Exora ID_db does not exist"
 ```sql
-CREATE DATABASE kilatbox_db;
+CREATE DATABASE Exora ID_db;
 ```
 
 ### Error: "permission denied"
 ```bash
 # Login sebagai postgres user
-psql -U postgres -d kilatbox_db -f kilatbox/schema.sql
+psql -U postgres -d Exora ID_db -f Exora ID/schema.sql
 ```
 
 ### Error: "relation already exists"

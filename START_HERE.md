@@ -1,4 +1,4 @@
-# 🎯 QUICK START - KilatBox
+# 🎯 QUICK START - Exora ID
 
 ## ✅ Password Database Sudah Diupdate!
 Database password sudah diubah ke `123qwe123` di file `.env`
@@ -10,7 +10,7 @@ Database password sudah diubah ke `123qwe123` di file `.env`
 ### TERMINAL 1: Start Server
 
 ```powershell
-cd D:\PROJECT\ITB\kilatbox
+cd D:\PROJECT\ITB\Exora ID
 npm start
 ```
 
@@ -23,7 +23,7 @@ npm start
 Buka **PowerShell BARU**, lalu jalankan:
 
 ```powershell
-cd D:\PROJECT\ITB\kilatbox
+cd D:\PROJECT\ITB\Exora ID
 node test-register.js
 ```
 
@@ -69,7 +69,7 @@ Sebelum bisa upload file, buat bucket dulu:
 1. Login: https://panel.cloudkilat.com
 2. Pilih menu **Kilat Storage**
 3. Klik **Create Bucket**
-4. Nama bucket: `kilatbox-storage`
+4. Nama bucket: `Exora ID-storage`
 5. Region: **Jakarta (id-jkt-1)**
 6. Access: **Private**
 
@@ -90,7 +90,7 @@ Server di Terminal 1 harus tetap jalan saat test!
 - Gunakan email berbeda
 - Atau hapus user dari database:
 ```powershell
-psql -U postgres -d kilatbox -c "DELETE FROM users WHERE email='test@example.com';"
+psql -U postgres -d Exora ID -c "DELETE FROM users WHERE email='test@example.com';"
 ```
 
 ### Error: "Cannot connect to database"
@@ -117,13 +117,13 @@ psql -U postgres -d kilatbox -c "DELETE FROM users WHERE email='test@example.com
    
 2. **Terminal 1:**
    ```powershell
-   cd D:\PROJECT\ITB\kilatbox
+   cd D:\PROJECT\ITB\Exora ID
    npm start
    ```
 
 3. **Terminal 2:**
    ```powershell
-   cd D:\PROJECT\ITB\kilatbox
+   cd D:\PROJECT\ITB\Exora ID
    node test-register.js
    ```
 

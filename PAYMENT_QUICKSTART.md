@@ -5,10 +5,10 @@
 ### 1. Update Database
 ```bash
 # Tambahkan tabel payments ke database
-psql -U postgres -d kilatbox -f add_payments_table.sql
+psql -U postgres -d Exora ID -f add_payments_table.sql
 
 # Atau jika menggunakan schema.sql lengkap
-psql -U postgres -d kilatbox -f schema.sql
+psql -U postgres -d Exora ID -f schema.sql
 ```
 
 ### 2. Start Server
@@ -67,7 +67,7 @@ POST   /api/payments/cancel/:id       - Batalkan pembayaran
 
 **Bank:** BCA  
 **No. Rekening:** 1234567890  
-**Atas Nama:** KilatBox Indonesia
+**Atas Nama:** Exora ID Indonesia
 
 ## Status Pembayaran
 
@@ -79,7 +79,7 @@ POST   /api/payments/cancel/:id       - Batalkan pembayaran
 
 ### "Tabel payments tidak ada"
 ```bash
-psql -U postgres -d kilatbox -f add_payments_table.sql
+psql -U postgres -d Exora ID -f add_payments_table.sql
 ```
 
 ### "Route /api/payments tidak ditemukan"

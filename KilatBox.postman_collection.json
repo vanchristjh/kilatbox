@@ -1,8 +1,8 @@
 {
   "info": {
-    "name": "KilatBox API",
-    "_postman_id": "kilatbox-api-collection",
-    "description": "KilatBox Cloud Storage System API Collection",
+    "name": "Exora ID API",
+    "_postman_id": "Exora ID-api-collection",
+    "description": "Exora ID Cloud Storage System API Collection",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [

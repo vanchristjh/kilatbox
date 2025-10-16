@@ -1,7 +1,7 @@
-# 🚀 Panduan Deployment KilatBox
+# 🚀 Panduan Deployment Exora ID
 
 ## Ringkasan Project
-KilatBox adalah sistem manajemen file berbasis cloud yang menggunakan:
+Exora ID adalah sistem manajemen file berbasis cloud yang menggunakan:
 - **Backend**: Node.js + Express
 - **Database**: PostgreSQL
 - **Storage**: CloudKilat S3-Compatible Storage
@@ -40,7 +40,7 @@ KilatBox adalah sistem manajemen file berbasis cloud yang menggunakan:
    - Buka https://railway.app
    - Klik "Start a New Project"
    - Pilih "Deploy from GitHub repo"
-   - Pilih repository KilatBox
+   - Pilih repository Exora ID
    - Railway akan auto-detect sebagai Node.js app
 
 3. **Tambah PostgreSQL Database:**
@@ -49,13 +49,13 @@ KilatBox adalah sistem manajemen file berbasis cloud yang menggunakan:
    - Railway akan auto-generate `DATABASE_URL`
 
 4. **Set Environment Variables:**
-   - Klik service KilatBox → "Variables"
+   - Klik service Exora ID → "Variables"
    - Tambahkan semua variable dari `.env.example`:
    ```
    CLOUDKILAT_S3_ENDPOINT=https://s3-id-jkt-1.kilatstorage.id
    CLOUDKILAT_ACCESS_KEY=<your-access-key>
    CLOUDKILAT_SECRET_KEY=<your-secret-key>
-   S3_BUCKET_NAME=kilatbox-storage
+   S3_BUCKET_NAME=Exora ID-storage
    JWT_SECRET=<generate-random-string>
    PORT=3000
    NODE_ENV=production
@@ -68,7 +68,7 @@ KilatBox adalah sistem manajemen file berbasis cloud yang menggunakan:
    - Jalankan isi file `schema.sql`
 
 6. **Akses Aplikasi:**
-   - Railway akan memberikan URL: `https://kilatbox-production.up.railway.app`
+   - Railway akan memberikan URL: `https://Exora ID-production.up.railway.app`
    - Atau setup custom domain di Settings
 
 ---
@@ -89,7 +89,7 @@ KilatBox adalah sistem manajemen file berbasis cloud yang menggunakan:
    - Klik "New +" → "Web Service"
    - Connect repository GitHub
    - Konfigurasi:
-     - **Name**: kilatbox
+     - **Name**: Exora ID
      - **Environment**: Node
      - **Build Command**: `npm install`
      - **Start Command**: `npm start`
@@ -97,7 +97,7 @@ KilatBox adalah sistem manajemen file berbasis cloud yang menggunakan:
 
 3. **Tambah PostgreSQL:**
    - Dashboard → "New +" → "PostgreSQL"
-   - Nama: kilatbox-db
+   - Nama: Exora ID-db
    - Copy "Internal Database URL"
 
 4. **Environment Variables:**
@@ -167,7 +167,7 @@ KilatBox adalah sistem manajemen file berbasis cloud yang menggunakan:
 2. Login dan create app:
    ```bash
    heroku login
-   heroku create kilatbox
+   heroku create Exora ID
    ```
 
 3. Add PostgreSQL:
@@ -180,7 +180,7 @@ KilatBox adalah sistem manajemen file berbasis cloud yang menggunakan:
    heroku config:set CLOUDKILAT_S3_ENDPOINT=https://s3-id-jkt-1.kilatstorage.id
    heroku config:set CLOUDKILAT_ACCESS_KEY=<your-key>
    heroku config:set CLOUDKILAT_SECRET_KEY=<your-secret>
-   heroku config:set S3_BUCKET_NAME=kilatbox-storage
+   heroku config:set S3_BUCKET_NAME=Exora ID-storage
    heroku config:set JWT_SECRET=<random-string>
    heroku config:set NODE_ENV=production
    ```
@@ -231,17 +231,17 @@ KilatBox adalah sistem manajemen file berbasis cloud yang menggunakan:
 2. **Setup PostgreSQL:**
    ```bash
    sudo -u postgres psql
-   CREATE DATABASE kilatbox;
-   CREATE USER kilatbox_user WITH PASSWORD 'strong_password';
-   GRANT ALL PRIVILEGES ON DATABASE kilatbox TO kilatbox_user;
+   CREATE DATABASE Exora ID;
+   CREATE USER Exora ID_user WITH PASSWORD 'strong_password';
+   GRANT ALL PRIVILEGES ON DATABASE Exora ID TO Exora ID_user;
    \q
    ```
 
 3. **Deploy Aplikasi:**
    ```bash
    cd /var/www
-   git clone <your-repo-url> kilatbox
-   cd kilatbox
+   git clone <your-repo-url> Exora ID
+   cd Exora ID
    npm install --production
    
    # Setup .env
@@ -251,20 +251,20 @@ KilatBox adalah sistem manajemen file berbasis cloud yang menggunakan:
 
 4. **Setup PM2:**
    ```bash
-   pm2 start server.js --name kilatbox
+   pm2 start server.js --name Exora ID
    pm2 startup
    pm2 save
    ```
 
 5. **Setup Nginx:**
    ```bash
-   sudo nano /etc/nginx/sites-available/kilatbox
+   sudo nano /etc/nginx/sites-available/Exora ID
    ```
    
    Paste konfigurasi (file nginx.conf sudah dibuat)
 
    ```bash
-   sudo ln -s /etc/nginx/sites-available/kilatbox /etc/nginx/sites-enabled/
+   sudo ln -s /etc/nginx/sites-available/Exora ID /etc/nginx/sites-enabled/
    sudo nginx -t
    sudo systemctl restart nginx
    ```
@@ -320,7 +320,7 @@ npm install express-rate-limit
 
 ### VPS (PM2)
 ```bash
-pm2 logs kilatbox     # Lihat logs
+pm2 logs Exora ID     # Lihat logs
 pm2 monit             # Monitor real-time
 pm2 status            # Status aplikasi
 ```

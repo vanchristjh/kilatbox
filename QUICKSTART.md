@@ -1,6 +1,6 @@
-# 🚀 Quick Start Guide - KilatBox
+# 🚀 Quick Start Guide - Exora ID
 
-Panduan cepat untuk menjalankan KilatBox dalam 5 menit!
+Panduan cepat untuk menjalankan Exora ID dalam 5 menit!
 
 ## ⚡ Prerequisites Check
 
@@ -18,21 +18,21 @@ Pastikan sudah terinstall:
 psql -U postgres
 
 # Buat database
-CREATE DATABASE kilatbox;
+CREATE DATABASE Exora ID;
 
 # Keluar
 \q
 
 # Import schema
-cd d:\PROJECT\ITB\kilatbox
-psql -U postgres -d kilatbox -f schema.sql
+cd d:\PROJECT\ITB\Exora ID
+psql -U postgres -d Exora ID -f schema.sql
 ```
 
 ### Step 2: Konfigurasi CloudKilat (2 menit)
 
 1. Login ke https://panel.cloudkilat.com
 2. Buka **Kilat Storage** → Klik **Create Bucket**
-3. Nama bucket: `kilatbox-storage`
+3. Nama bucket: `Exora ID-storage`
 4. Catat: **Secret Access Key** dari menu API Keys
    - Access Key sudah tersedia: `00f40347ce0451733558`
    - Endpoint: `https://s3-id-jkt-1.kilatstorage.id`
@@ -51,8 +51,8 @@ notepad .env
 ```env
 CLOUDKILAT_ACCESS_KEY=00f40347ce0451733558
 CLOUDKILAT_SECRET_KEY=isi_secret_key_dari_cloudkilat
-S3_BUCKET_NAME=kilatbox-storage
-DATABASE_URL=postgres://postgres:PASSWORD_POSTGRES_ANDA@localhost:5432/kilatbox
+S3_BUCKET_NAME=Exora ID-storage
+DATABASE_URL=postgres://postgres:PASSWORD_POSTGRES_ANDA@localhost:5432/Exora ID
 ```
 
 ### Step 4: Install & Run (1 menit)
@@ -77,7 +77,7 @@ npm start
 ## ✅ Checklist Setup
 
 - [ ] PostgreSQL running
-- [ ] Database `kilatbox` created
+- [ ] Database `Exora ID` created
 - [ ] Schema imported (tables: users, files)
 - [ ] CloudKilat bucket created
 - [ ] File `.env` configured
@@ -105,7 +105,7 @@ notepad .env
 
 ```powershell
 # Test koneksi PostgreSQL
-psql -U postgres -d kilatbox
+psql -U postgres -d Exora ID
 
 # Jika gagal, pastikan PostgreSQL service running
 # Cek di Services (services.msc) → PostgreSQL
@@ -160,7 +160,7 @@ Setelah berhasil running:
 
 ## 🎉 Congratulations!
 
-Anda berhasil menjalankan **KilatBox**! 
+Anda berhasil menjalankan **Exora ID**! 
 
 **Happy Coding! 🚀**
 

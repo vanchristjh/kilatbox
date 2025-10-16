@@ -63,7 +63,7 @@ SELECT COUNT(*) FROM subscription_plans;
 ```powershell
 # Run database schema to create all tables
 $env:PGPASSWORD='123qwe123'
-psql -U postgres -d kilatbox -f schema.sql
+psql -U postgres -d Exora ID -f schema.sql
 ```
 
 ### Results:
@@ -238,7 +238,7 @@ CREATE TABLE user_subscriptions (
 **Cause:** Database tables not created
 **Solution:** Run `schema.sql`
 ```powershell
-psql -U postgres -d kilatbox -f schema.sql
+psql -U postgres -d Exora ID -f schema.sql
 ```
 
 ### Error 2: "Email already registered"
@@ -297,25 +297,25 @@ SELECT COUNT(*) FROM users;
 Create `setup-database.ps1`:
 ```powershell
 # setup-database.ps1
-Write-Host "Setting up KilatBox database..." -ForegroundColor Cyan
+Write-Host "Setting up Exora ID database..." -ForegroundColor Cyan
 
 # Set password
 $env:PGPASSWORD='123qwe123'
 
 # Drop and recreate database
 Write-Host "Dropping existing database..." -ForegroundColor Yellow
-psql -U postgres -c "DROP DATABASE IF EXISTS kilatbox;"
+psql -U postgres -c "DROP DATABASE IF EXISTS Exora ID;"
 
 Write-Host "Creating new database..." -ForegroundColor Yellow
-psql -U postgres -c "CREATE DATABASE kilatbox;"
+psql -U postgres -c "CREATE DATABASE Exora ID;"
 
 # Run schema
 Write-Host "Running schema.sql..." -ForegroundColor Yellow
-psql -U postgres -d kilatbox -f schema.sql
+psql -U postgres -d Exora ID -f schema.sql
 
 Write-Host "Database setup complete!" -ForegroundColor Green
 Write-Host "Verifying tables..." -ForegroundColor Cyan
-psql -U postgres -d kilatbox -c "SELECT tablename FROM pg_tables WHERE schemaname = 'public';"
+psql -U postgres -d Exora ID -c "SELECT tablename FROM pg_tables WHERE schemaname = 'public';"
 ```
 
 **2. Add to README.md**
@@ -328,8 +328,8 @@ Before first run:
 ./setup-database.ps1
 
 # Option 2: Manual setup
-psql -U postgres -c "CREATE DATABASE kilatbox;"
-psql -U postgres -d kilatbox -f schema.sql
+psql -U postgres -c "CREATE DATABASE Exora ID;"
+psql -U postgres -d Exora ID -f schema.sql
 ```
 ```
 
@@ -354,7 +354,7 @@ pool.query('SELECT COUNT(*) FROM subscription_plans')
   })
   .catch(err => {
     console.error('❌ subscription_plans table not found!');
-    console.error('   Please run: psql -U postgres -d kilatbox -f schema.sql');
+    console.error('   Please run: psql -U postgres -d Exora ID -f schema.sql');
   });
 ```
 
@@ -365,20 +365,20 @@ pool.query('SELECT COUNT(*) FROM subscription_plans')
 ### Essential Commands:
 ```powershell
 # Create database
-psql -U postgres -c "CREATE DATABASE kilatbox;"
+psql -U postgres -c "CREATE DATABASE Exora ID;"
 
 # Run schema
 $env:PGPASSWORD='123qwe123'
-psql -U postgres -d kilatbox -f schema.sql
+psql -U postgres -d Exora ID -f schema.sql
 
 # Verify tables
-psql -U postgres -d kilatbox -c "\dt"
+psql -U postgres -d Exora ID -c "\dt"
 
 # Check subscription plans
-psql -U postgres -d kilatbox -c "SELECT * FROM subscription_plans;"
+psql -U postgres -d Exora ID -c "SELECT * FROM subscription_plans;"
 
 # Check users
-psql -U postgres -d kilatbox -c "SELECT id, name, email FROM users;"
+psql -U postgres -d Exora ID -c "SELECT id, name, email FROM users;"
 
 # Start server
 node server.js

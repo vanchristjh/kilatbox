@@ -62,7 +62,7 @@
 
 ### 1. Update Database
 ```bash
-psql -U postgres -d kilatbox -f add_payments_table.sql
+psql -U postgres -d Exora ID -f add_payments_table.sql
 ```
 
 ### 2. Restart Server

@@ -314,7 +314,7 @@ Status: 200 OK | 400 Bad Request | 401 Unauthorized | 404 Not Found | 500 Error
 
 ### **1. Pastikan Server Berjalan**
 ```bash
-cd kilatbox
+cd Exora ID
 node server.js
 ```
 
@@ -403,4 +403,4 @@ node server.js
 
 **Terakhir diupdate:** 16 Oktober 2025
 **Developer:** GitHub Copilot
-**Project:** KilatBox Cloud Storage
+**Project:** Exora ID Cloud Storage

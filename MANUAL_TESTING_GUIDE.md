@@ -1,4 +1,4 @@
-# 🧪 Manual Testing Guide - KilatBox
+# 🧪 Manual Testing Guide - Exora ID
 
 ## 🎯 Testing Session Started!
 
@@ -18,7 +18,7 @@ Server: ✅ Running di http://localhost:3000
 4. ✅ Check tombol Register/Login ada
 
 **Expected Result:**
-- Halaman landing KilatBox muncul
+- Halaman landing Exora ID muncul
 - UI responsive dan menarik
 - Tombol navigasi berfungsi
 
@@ -32,7 +32,7 @@ Server: ✅ Running di http://localhost:3000
 2. Isi form registration:
    ```
    Username: testuser
-   Email: test@kilatbox.com
+   Email: test@Exora ID.com
    Password: Test123!@#
    Confirm Password: Test123!@#
    ```
@@ -46,7 +46,7 @@ Server: ✅ Running di http://localhost:3000
 
 **Check Database (Optional):**
 ```powershell
-psql -U postgres -d kilatbox -c "SELECT id, username, email, created_at FROM users ORDER BY created_at DESC LIMIT 5;"
+psql -U postgres -d Exora ID -c "SELECT id, username, email, created_at FROM users ORDER BY created_at DESC LIMIT 5;"
 ```
 
 ---
@@ -58,7 +58,7 @@ psql -U postgres -d kilatbox -c "SELECT id, username, email, created_at FROM use
 1. Jika belum di halaman login, pergi ke login page
 2. Isi credentials:
    ```
-   Email: test@kilatbox.com
+   Email: test@Exora ID.com
    Password: Test123!@#
    ```
 3. Klik **"Login"** / **"Sign In"**
@@ -102,7 +102,7 @@ sessionStorage.getItem('token')
 **Goal:** Upload file kecil untuk test basic upload
 
 **Steps:**
-1. Siapkan file test (contoh: `test.txt` berisi "Hello KilatBox!")
+1. Siapkan file test (contoh: `test.txt` berisi "Hello Exora ID!")
 2. Klik **"Upload"** button atau drag & drop area
 3. Pilih file `test.txt`
 4. (Optional) Tambah description
@@ -124,7 +124,7 @@ node -e "const {S3Client,ListObjectsV2Command}=require('@aws-sdk/client-s3');con
 
 **Check Database:**
 ```powershell
-psql -U postgres -d kilatbox -c "SELECT id, filename, filesize, mimetype, created_at FROM files ORDER BY created_at DESC LIMIT 5;"
+psql -U postgres -d Exora ID -c "SELECT id, filename, filesize, mimetype, created_at FROM files ORDER BY created_at DESC LIMIT 5;"
 ```
 
 ---
@@ -185,7 +185,7 @@ psql -U postgres -d kilatbox -c "SELECT id, filename, filesize, mimetype, create
 **Verify Deletion:**
 ```powershell
 # Check database
-psql -U postgres -d kilatbox -c "SELECT id, filename, deleted_at FROM files WHERE deleted_at IS NOT NULL ORDER BY deleted_at DESC LIMIT 5;"
+psql -U postgres -d Exora ID -c "SELECT id, filename, deleted_at FROM files WHERE deleted_at IS NOT NULL ORDER BY deleted_at DESC LIMIT 5;"
 ```
 
 ---
@@ -220,7 +220,7 @@ psql -U postgres -d kilatbox -c "SELECT id, filename, deleted_at FROM files WHER
 
 **Check Database:**
 ```powershell
-psql -U postgres -d kilatbox -c "SELECT u.username, u.email, s.storage_used, s.storage_limit, s.plan_name FROM users u LEFT JOIN subscriptions s ON u.id = s.user_id WHERE u.email = 'test@kilatbox.com';"
+psql -U postgres -d Exora ID -c "SELECT u.username, u.email, s.storage_used, s.storage_limit, s.plan_name FROM users u LEFT JOIN subscriptions s ON u.id = s.user_id WHERE u.email = 'test@Exora ID.com';"
 ```
 
 ---

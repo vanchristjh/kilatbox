@@ -1,7 +1,7 @@
 {
-  "name": "kilatbox",
+  "name": "exora-id",
   "version": "1.0.0",
-  "description": "Sistem Manajemen File Berbasis Cloud dengan Kilat Storage",
+  "description": "Exora ID - Platform Manajemen File Berbasis Cloud dengan CloudKilat Storage",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -12,7 +12,8 @@
     "cloud",
     "storage",
     "file-management",
-    "kilat-storage"
+    "cloudkilat-storage",
+    "exora"
   ],
   "author": "",
   "license": "ISC",

@@ -162,7 +162,7 @@ Test-NetConnection localhost -Port 3000
 
 ### Test Database
 ```javascript
-node -e "const { Pool } = require('pg'); const pool = new Pool({ connectionString: 'postgres://postgres:123qwe123@localhost:5432/kilatbox' }); pool.query('SELECT * FROM user_subscriptions WHERE user_id = 1').then(res => { console.log(JSON.stringify(res.rows, null, 2)); pool.end(); });"
+node -e "const { Pool } = require('pg'); const pool = new Pool({ connectionString: 'postgres://postgres:123qwe123@localhost:5432/Exora ID' }); pool.query('SELECT * FROM user_subscriptions WHERE user_id = 1').then(res => { console.log(JSON.stringify(res.rows, null, 2)); pool.end(); });"
 ```
 
 ### Test S3

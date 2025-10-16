@@ -71,16 +71,16 @@ window.addEventListener('online', () => {
 psql -U postgres
 
 # Create database jika belum ada
-CREATE DATABASE kilatbox;
+CREATE DATABASE Exora ID;
 
 # Exit dan run schema
 \q
-psql -U postgres -d kilatbox -f schema.sql
+psql -U postgres -d Exora ID -f schema.sql
 ```
 
 ### **Step 2: Start Server**
 ```powershell
-cd D:\PROJECT\ITB\kilatbox
+cd D:\PROJECT\ITB\Exora ID
 node server.js
 ```
 
@@ -255,13 +255,13 @@ Expected Results:
 **Solusi:**
 ```powershell
 # 1. Check database connection
-psql -U postgres -d kilatbox -c "SELECT * FROM subscription_plans;"
+psql -U postgres -d Exora ID -c "SELECT * FROM subscription_plans;"
 
 # 2. Jika table tidak ada, run schema
-psql -U postgres -d kilatbox -f schema.sql
+psql -U postgres -d Exora ID -f schema.sql
 
 # 3. Verify data inserted
-psql -U postgres -d kilatbox -c "SELECT id, plan_name, display_name FROM subscription_plans;"
+psql -U postgres -d Exora ID -c "SELECT id, plan_name, display_name FROM subscription_plans;"
 ```
 
 ### Masalah: "Error memuat paket" di browser

@@ -61,7 +61,7 @@ async function testRegister() {
     
     const userData = {
         name: 'Test User',
-        email: 'test@kilatbox.com',
+        email: 'test@Exora ID.com',
         password: 'Test123!@#'
     };
     
@@ -94,7 +94,7 @@ async function testLogin() {
     console.log('\n🧪 TEST 3: Login User');
     
     const credentials = {
-        email: 'test@kilatbox.com',
+        email: 'test@Exora ID.com',
         password: 'Test123!@#'
     };
     
@@ -191,7 +191,7 @@ async function testGetFiles(token) {
 // Main test runner
 async function runAllTests() {
     console.log('\n═══════════════════════════════════════════');
-    console.log('     KilatBox API Testing');
+    console.log('     Exora ID API Testing');
     console.log('═══════════════════════════════════════════');
     
     // Test 1: Health Check
@@ -230,7 +230,7 @@ async function runAllTests() {
     
     console.log('Next steps:');
     console.log('1. Open browser: http://localhost:3000');
-    console.log('2. Login with: test@kilatbox.com / Test123!@#');
+    console.log('2. Login with: test@Exora ID.com / Test123!@#');
     console.log('3. Test file upload via UI');
     console.log('4. Test file download and delete\n');
 }

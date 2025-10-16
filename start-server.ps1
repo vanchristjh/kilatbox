@@ -1,4 +1,4 @@
-# Start KilatBox Server
-Write-Host "Starting KilatBox Server..." -ForegroundColor Green
-Set-Location D:\PROJECT\ITB\kilatbox
+# Start Exora ID Server
+Write-Host "Starting Exora ID Server..." -ForegroundColor Green
+Set-Location D:\PROJECT\ITB\Exora ID
 npm start

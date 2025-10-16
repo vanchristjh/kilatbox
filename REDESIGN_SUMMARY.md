@@ -1,8 +1,8 @@
-# 🎉 KilatBox - Redesign Complete!
+# 🎉 Exora ID - Redesign Complete!
 
 ## ✨ Transformation Summary
 
-Proyek KilatBox telah ditransformasi dari tampilan basic menjadi **modern, professional, dan eye-catching** mengikuti best practices dari startup teknologi terkini!
+Proyek Exora ID telah ditransformasi dari tampilan basic menjadi **modern, professional, dan eye-catching** mengikuti best practices dari startup teknologi terkini!
 
 ---
 
@@ -152,7 +152,7 @@ Background:  Animated gradient
 ✅ Smooth animations
 ✅ Professional footer
 
-### KilatBox Additions
+### Exora ID Additions
 💎 Modal authentication (better UX)
 💎 Dashboard integration
 💎 File management UI
@@ -200,7 +200,7 @@ Background:  Animated gradient
 
 ### Start Server
 ```bash
-cd kilatbox
+cd Exora ID
 node server.js
 ```
 
@@ -302,7 +302,7 @@ http://localhost:3000/
 
 ## 🎊 Conclusion
 
-**KilatBox sekarang memiliki tampilan yang:**
+**Exora ID sekarang memiliki tampilan yang:**
 - ✨ **Modern & Eye-catching**
 - 💎 **Professional & Premium**
 - 📱 **Fully Responsive**
@@ -326,7 +326,7 @@ Dokumentasi lengkap ada di:
 
 ---
 
-**Selamat! KilatBox sudah siap untuk ditampilkan! 🎉🚀✨**
+**Selamat! Exora ID sudah siap untuk ditampilkan! 🎉🚀✨**
 
 Built with modern web technologies and ❤️
-© 2025 KilatBox
+© 2025 Exora ID

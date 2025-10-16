@@ -2,7 +2,7 @@
 
 ## ✨ Major Redesign Complete!
 
-Dashboard dan Login KilatBox telah ditransformasi menjadi **ultra-modern, professional, dan sangat eye-catching**!
+Dashboard dan Login Exora ID telah ditransformasi menjadi **ultra-modern, professional, dan sangat eye-catching**!
 
 ---
 
@@ -431,13 +431,13 @@ function getFileType(mimeType) {
 ## 📞 Support
 
 Butuh bantuan?
-- 📧 Email: support@kilatbox.com
+- 📧 Email: support@Exora ID.com
 - 💬 Docs: Lihat file ini!
 - 🐛 Issues: Report bugs via GitHub
 
 ---
 
-**Dashboard KilatBox sekarang:**
+**Dashboard Exora ID sekarang:**
 - ✨ **Super Modern**
 - 💎 **Professional Grade**
 - 📱 **Fully Responsive**
@@ -447,4 +447,4 @@ Butuh bantuan?
 **Perfect untuk production! 🎉🚀**
 
 Built with ❤️ using modern web technologies
-© 2025 KilatBox
+© 2025 Exora ID

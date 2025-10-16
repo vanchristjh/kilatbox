@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
 app.get('/api/health', (req, res) => {
   res.json({ 
     success: true, 
-    message: 'KilatBox API is running',
+    message: 'Exora ID API is running',
     timestamp: new Date().toISOString()
   });
 });
@@ -67,7 +67,7 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log('╔════════════════════════════════════════════╗');
   console.log('║                                            ║');
-  console.log('║         🚀 KilatBox Server Started        ║');
+  console.log('║         🚀 Exora ID Server Started        ║');
   console.log('║                                            ║');
   console.log('╚════════════════════════════════════════════╝');
   console.log('');

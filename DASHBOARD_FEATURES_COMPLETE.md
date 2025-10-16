@@ -2,7 +2,7 @@
 
 ## 🎯 Status: COMPLETE & WORKING
 
-Semua fitur dashboard KilatBox telah diperbaiki dan berfungsi dengan baik!
+Semua fitur dashboard Exora ID telah diperbaiki dan berfungsi dengan baik!
 
 ---
 
@@ -220,7 +220,7 @@ POST   /api/share/:id/share // Create share link
 
 ### 1. Start Server
 ```powershell
-cd D:\PROJECT\ITB\kilatbox
+cd D:\PROJECT\ITB\Exora ID
 node server.js
 ```
 
@@ -292,7 +292,7 @@ node server.js
 
 **Semua fitur dashboard sudah berfungsi 100%!**
 
-Dashboard KilatBox sekarang memiliki:
+Dashboard Exora ID sekarang memiliki:
 - ✅ Upload yang smooth dengan progress bar
 - ✅ File management yang lengkap
 - ✅ Share functionality yang secure
@@ -314,4 +314,4 @@ Jika ada issue:
 4. Verify CloudKilat S3 credentials
 5. Check network tab untuk API responses
 
-**Dashboard KilatBox - Powered by CloudKilat Storage** ☁️⚡
+**Dashboard Exora ID - Powered by CloudKilat Storage** ☁️⚡

@@ -1,8 +1,8 @@
-# 🎉 KILATBOX - COMPLETE UI TRANSFORMATION! 
+# 🎉 Exora ID - COMPLETE UI TRANSFORMATION! 
 
 ## ✨ Project Summary
 
-KilatBox Cloud Storage telah **selesai ditransformasi** menjadi aplikasi web modern yang sangat menarik, professional, dan user-friendly!
+Exora ID Cloud Storage telah **selesai ditransformasi** menjadi aplikasi web modern yang sangat menarik, professional, dan user-friendly!
 
 ---
 
@@ -231,7 +231,7 @@ Circle: 50%
 ## 📂 File Structure
 
 ```
-kilatbox/
+Exora ID/
 ├── public/
 │   ├── index.html          ✨ Landing page (REDESIGNED)
 │   ├── dashboard.html      ✨ Dashboard (COMPLETELY NEW!)
@@ -308,7 +308,7 @@ kilatbox/
 
 ### Start Server
 ```powershell
-cd kilatbox
+cd Exora ID
 node server.js
 ```
 
@@ -402,7 +402,7 @@ http://localhost:3000/
 5. **README.md** - Setup & configuration
 
 ### Get Help
-- 📧 Email: support@kilatbox.com
+- 📧 Email: support@Exora ID.com
 - 💬 GitHub: [Your repo]
 - 📚 Docs: Read the markdown files above
 
@@ -436,7 +436,7 @@ http://localhost:3000/
 
 ## 🎉 Congratulations!
 
-**KilatBox sekarang memiliki:**
+**Exora ID sekarang memiliki:**
 
 ✨ **Design yang menakjubkan**
 💎 **User experience yang sempurna**
@@ -448,7 +448,7 @@ http://localhost:3000/
 
 ---
 
-© 2025 KilatBox Cloud Storage
+© 2025 Exora ID Cloud Storage
 Redesigned & Optimized for Excellence 🚀
 
-**Selamat menggunakan KilatBox yang baru! 🎉✨**
+**Selamat menggunakan Exora ID yang baru! 🎉✨**

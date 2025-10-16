@@ -26,7 +26,7 @@ node create-bucket.js
 2. Login dengan akun Anda
 3. Pergi ke Storage → Buckets
 4. Klik "Create Bucket"
-5. Nama: `kilatbox-storage`
+5. Nama: `Exora ID-storage`
 6. Region: `id-jkt-1` (Jakarta)
 7. Klik "Create"
 
@@ -34,12 +34,12 @@ node create-bucket.js
 
 ```powershell
 # Check apakah tables sudah dibuat
-psql -U postgres -d kilatbox -c "\dt"
+psql -U postgres -d Exora ID -c "\dt"
 ```
 
 Jika belum ada tables, jalankan:
 ```powershell
-psql -U postgres -d kilatbox -f schema.sql
+psql -U postgres -d Exora ID -f schema.sql
 ```
 
 ### Step 3: Start Server
@@ -68,7 +68,7 @@ Server akan berjalan di: **http://localhost:3000**
    ```json
    {
      "success": true,
-     "message": "KilatBox API is running",
+     "message": "Exora ID API is running",
      "timestamp": "2025-10-17T..."
    }
    ```
@@ -266,7 +266,7 @@ node --inspect server.js
 }
 
 {
-  "email": "admin@kilatbox.com",
+  "email": "admin@Exora ID.com",
   "password": "admin123",
   "username": "admin"
 }
@@ -320,10 +320,10 @@ curl -X POST http://localhost:3000/api/auth/login `
 ### Database Monitoring
 ```powershell
 # Check active connections
-psql -U postgres -d kilatbox -c "SELECT * FROM pg_stat_activity WHERE datname='kilatbox';"
+psql -U postgres -d Exora ID -c "SELECT * FROM pg_stat_activity WHERE datname='Exora ID';"
 
 # Check table sizes
-psql -U postgres -d kilatbox -c "SELECT tablename, pg_size_pretty(pg_total_relation_size(tablename::text)) FROM pg_tables WHERE schemaname='public';"
+psql -U postgres -d Exora ID -c "SELECT tablename, pg_size_pretty(pg_total_relation_size(tablename::text)) FROM pg_tables WHERE schemaname='public';"
 ```
 
 ### CloudKilat Monitoring
@@ -371,7 +371,7 @@ Jika semua test di atas ✅ PASS, project siap untuk deploy!
 ### Check Logs:
 ```powershell
 # Server logs (jika pakai PM2)
-pm2 logs kilatbox
+pm2 logs Exora ID
 
 # PostgreSQL logs
 # Windows: C:\Program Files\PostgreSQL\15\data\log

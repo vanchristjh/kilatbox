@@ -9,7 +9,7 @@ async function testRegister() {
     
     const userData = {
         username: 'testuser',
-        email: 'test@kilatbox.com',
+        email: 'test@Exora ID.com',
         password: 'Test123!@#'
     };
     
@@ -44,7 +44,7 @@ async function testLogin() {
     console.log('\n🧪 TEST 2: Login User\n');
     
     const credentials = {
-        email: 'test@kilatbox.com',
+        email: 'test@Exora ID.com',
         password: 'Test123!@#'
     };
     
@@ -154,7 +154,7 @@ async function testGetFiles() {
 // Run All Tests Sequentially
 async function runAllTests() {
     console.log('═══════════════════════════════════════════');
-    console.log('     KilatBox Testing Suite');
+    console.log('     Exora ID Testing Suite');
     console.log('═══════════════════════════════════════════\n');
     
     // Test 1: Register
@@ -189,7 +189,7 @@ function all() { return runAllTests(); }
 // Instructions
 console.log(`
 ╔═══════════════════════════════════════════════════╗
-║  KilatBox Testing Helper Loaded! 🚀              ║
+║  Exora ID Testing Helper Loaded! 🚀              ║
 ╠═══════════════════════════════════════════════════╣
 ║  Available Commands:                              ║
 ║                                                   ║

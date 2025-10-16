@@ -1,12 +1,12 @@
-# KilatBox API Testing Collection
+# Exora ID API Testing Collection
 
 ## Postman Collection
 
-Anda bisa import file ini ke Postman untuk testing API KilatBox.
+Anda bisa import file ini ke Postman untuk testing API Exora ID.
 
 ### Setup Environment di Postman
 
-1. Buat Environment baru dengan nama "KilatBox Local"
+1. Buat Environment baru dengan nama "Exora ID Local"
 2. Tambahkan variables:
    - `base_url`: `http://localhost:3000`
    - `token`: (akan diisi otomatis setelah login)
@@ -211,7 +211,7 @@ Authorization: Bearer {{token}}
 {
   "success": true,
   "data": {
-    "downloadUrl": "https://s3.cloudkilat.com/kilatbox-storage/1/1704067200000-abc123.pdf?X-Amz-...",
+    "downloadUrl": "https://s3.cloudkilat.com/Exora ID-storage/1/1704067200000-abc123.pdf?X-Amz-...",
     "fileName": "document.pdf",
     "fileSize": 1024000,
     "mimeType": "application/pdf",
@@ -263,7 +263,7 @@ GET {{base_url}}/api/health
 ```json
 {
   "success": true,
-  "message": "KilatBox API is running",
+  "message": "Exora ID API is running",
   "timestamp": "2024-01-01T00:00:00.000Z"
 }
 ```

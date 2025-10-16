@@ -1,26 +1,26 @@
-# 🚀 Setup dan Testing Sistem Subscription KilatBox
+# 🚀 Setup dan Testing Sistem Subscription Exora ID
 
 ## 📋 Prerequisites
 - PostgreSQL sudah terinstall dan running
 - Node.js sudah terinstall
 - CloudKilat S3 credentials sudah dikonfigurasi
-- Database `kilatbox_db` sudah dibuat
+- Database `Exora ID_db` sudah dibuat
 
 ## 🔧 Setup Steps
 
 ### 1. Install Dependencies (jika belum)
 ```bash
-cd kilatbox
+cd Exora ID
 npm install
 ```
 
 ### 2. Reset dan Recreate Database Schema
 ```bash
 # Masuk ke PostgreSQL
-psql -U postgres -d kilatbox_db
+psql -U postgres -d Exora ID_db
 
 # Atau langsung run file schema
-psql -U postgres -d kilatbox_db -f schema.sql
+psql -U postgres -d Exora ID_db -f schema.sql
 ```
 
 Schema baru akan membuat:
@@ -430,4 +430,4 @@ Fitur-fitur yang sudah terimplementasi:
 - ✅ Upgrade/Downgrade dengan validation
 - ✅ UI untuk subscription management
 
-Selamat! Project KilatBox Anda sudah memiliki sistem subscription yang lengkap! 🎊
+Selamat! Project Exora ID Anda sudah memiliki sistem subscription yang lengkap! 🎊

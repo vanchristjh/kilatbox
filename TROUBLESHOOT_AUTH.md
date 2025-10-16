@@ -11,7 +11,7 @@ Mendapat error "Server error during registration" dan "Server error during login
 Error ini biasanya terjadi karena:
 - Password PostgreSQL di `.env` tidak sesuai
 - PostgreSQL service tidak running
-- Database `kilatbox` belum dibuat atau terhapus
+- Database `Exora ID` belum dibuat atau terhapus
 
 ---
 
@@ -26,12 +26,12 @@ notepad .env
 
 Cari baris ini:
 ```env
-DATABASE_URL=postgres://postgres:postgres@localhost:5432/kilatbox
+DATABASE_URL=postgres://postgres:postgres@localhost:5432/Exora ID
 ```
 
 Format:
 ```
-DATABASE_URL=postgres://USERNAME:PASSWORD@localhost:5432/kilatbox
+DATABASE_URL=postgres://USERNAME:PASSWORD@localhost:5432/Exora ID
                          ^^^^^^^^ ^^^^^^^^
                          user     password yang benar!
 ```
@@ -41,12 +41,12 @@ DATABASE_URL=postgres://USERNAME:PASSWORD@localhost:5432/kilatbox
 **Contoh:**
 - Jika password PostgreSQL Anda adalah "admin":
   ```env
-  DATABASE_URL=postgres://postgres:admin@localhost:5432/kilatbox
+  DATABASE_URL=postgres://postgres:admin@localhost:5432/Exora ID
   ```
 
 - Jika password PostgreSQL Anda adalah "123456":
   ```env
-  DATABASE_URL=postgres://postgres:123456@localhost:5432/kilatbox
+  DATABASE_URL=postgres://postgres:123456@localhost:5432/Exora ID
   ```
 
 ---
@@ -55,7 +55,7 @@ DATABASE_URL=postgres://USERNAME:PASSWORD@localhost:5432/kilatbox
 
 ```powershell
 # Test koneksi PostgreSQL
-psql -U postgres -d kilatbox -c "SELECT current_database();"
+psql -U postgres -d Exora ID -c "SELECT current_database();"
 ```
 
 ✅ Jika berhasil: Lanjut ke Step 3
@@ -67,7 +67,7 @@ psql -U postgres -d kilatbox -c "SELECT current_database();"
 
 ```powershell
 # Cek apakah tabel users dan files ada
-psql -U postgres -d kilatbox -c "\dt"
+psql -U postgres -d Exora ID -c "\dt"
 ```
 
 **Expected Output:**
@@ -81,7 +81,7 @@ psql -U postgres -d kilatbox -c "\dt"
 
 ❌ Jika tabel tidak ada, jalankan schema lagi:
 ```powershell
-psql -U postgres -d kilatbox -f schema.sql
+psql -U postgres -d Exora ID -f schema.sql
 ```
 
 ---
@@ -96,7 +96,7 @@ psql -U postgres -d kilatbox -f schema.sql
 taskkill /F /IM node.exe
 
 # Start server lagi
-cd D:\PROJECT\ITB\kilatbox
+cd D:\PROJECT\ITB\Exora ID
 npm start
 ```
 
@@ -106,7 +106,7 @@ npm start
 
 ```powershell
 # Di terminal BARU (jangan yang running server!)
-cd D:\PROJECT\ITB\kilatbox
+cd D:\PROJECT\ITB\Exora ID
 node test-register.js
 ```
 
@@ -159,15 +159,15 @@ Start-Service postgresql-x64-14  # sesuaikan versi
 
 ---
 
-### Error 3: "database 'kilatbox' does not exist"
+### Error 3: "database 'Exora ID' does not exist"
 ```
 ❌ Penyebab: Database belum dibuat
 ✅ Solusi  : Buat database
 ```
 
 ```powershell
-psql -U postgres -c "CREATE DATABASE kilatbox"
-psql -U postgres -d kilatbox -f schema.sql
+psql -U postgres -c "CREATE DATABASE Exora ID"
+psql -U postgres -d Exora ID -f schema.sql
 ```
 
 ---
@@ -179,7 +179,7 @@ psql -U postgres -d kilatbox -f schema.sql
 ```
 
 ```powershell
-psql -U postgres -d kilatbox -f schema.sql
+psql -U postgres -d Exora ID -f schema.sql
 ```
 
 ---
@@ -188,12 +188,12 @@ psql -U postgres -d kilatbox -f schema.sql
 
 ### 1. Test Database Connection
 ```powershell
-psql -U postgres -d kilatbox -c "SELECT 1;"
+psql -U postgres -d Exora ID -c "SELECT 1;"
 ```
 
 ### 2. Test Tables Exist
 ```powershell
-psql -U postgres -d kilatbox -c "SELECT COUNT(*) FROM users;"
+psql -U postgres -d Exora ID -c "SELECT COUNT(*) FROM users;"
 ```
 
 ### 3. Test Server Health
@@ -226,7 +226,7 @@ Lihat error message (jika ada)
 Cek satu per satu:
 
 - [ ] PostgreSQL service running
-- [ ] Database `kilatbox` exists
+- [ ] Database `Exora ID` exists
 - [ ] Tables `users` & `files` exist
 - [ ] PASSWORD di .env sudah benar
 - [ ] Server di-restart setelah edit .env
@@ -245,18 +245,18 @@ Cek satu per satu:
 taskkill /F /IM node.exe
 
 # 2. Drop & recreate database
-psql -U postgres -c "DROP DATABASE IF EXISTS kilatbox;"
-psql -U postgres -c "CREATE DATABASE kilatbox;"
-psql -U postgres -d kilatbox -f schema.sql
+psql -U postgres -c "DROP DATABASE IF EXISTS Exora ID;"
+psql -U postgres -c "CREATE DATABASE Exora ID;"
+psql -U postgres -d Exora ID -f schema.sql
 
 # 3. Verify tables
-psql -U postgres -d kilatbox -c "\dt"
+psql -U postgres -d Exora ID -c "\dt"
 
 # 4. Edit .env dengan password yang benar
 notepad .env
 
 # 5. Start server
-cd D:\PROJECT\ITB\kilatbox
+cd D:\PROJECT\ITB\Exora ID
 npm start
 
 # 6. Di terminal baru, test register
@@ -277,7 +277,7 @@ node test-register.js
 ## 📞 Jika Masih Error
 
 Kirim informasi berikut:
-1. Output dari: `psql -U postgres -d kilatbox -c "\dt"`
+1. Output dari: `psql -U postgres -d Exora ID -c "\dt"`
 2. Output dari: `node test-register.js`
 3. Screenshot server log (terminal yang run `npm start`)
 4. Screenshot browser console error

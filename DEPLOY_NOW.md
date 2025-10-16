@@ -1,4 +1,4 @@
-# 🚀 Deploy KilatBox ke Internet - Panduan Lengkap
+# 🚀 Deploy Exora ID ke Internet - Panduan Lengkap
 
 **Estimasi Waktu: 15-20 menit**
 **Platform: Railway.app (Gratis!)**
@@ -22,7 +22,7 @@ Yang sudah OK:
 Buka PowerShell di folder project dan jalankan:
 
 ```powershell
-cd D:\PROJECT\ITB\kilatbox
+cd D:\PROJECT\ITB\Exora ID
 
 # Initialize git
 git init
@@ -31,7 +31,7 @@ git init
 git add .
 
 # Commit
-git commit -m "Initial commit - KilatBox ready for deployment"
+git commit -m "Initial commit - Exora ID ready for deployment"
 ```
 
 ### 1.2 Buat Repository di GitHub
@@ -39,7 +39,7 @@ git commit -m "Initial commit - KilatBox ready for deployment"
 1. **Buka GitHub:** https://github.com/new
 
 2. **Isi Form:**
-   - Repository name: `kilatbox` (atau nama lain)
+   - Repository name: `Exora ID` (atau nama lain)
    - Description: `Cloud Storage Management System with CloudKilat`
    - Visibility: **Private** (recommended untuk production)
    - **JANGAN centang** "Initialize with README" (sudah ada)
@@ -52,7 +52,7 @@ Setelah repository dibuat, GitHub akan tampilkan instruksi. Gunakan yang ini:
 
 ```powershell
 # Add remote (ganti USERNAME dengan username GitHub Anda)
-git remote add origin https://github.com/USERNAME/kilatbox.git
+git remote add origin https://github.com/USERNAME/Exora ID.git
 
 # Rename branch ke main
 git branch -M main
@@ -80,7 +80,7 @@ git push -u origin main
 
 2. **Pilih "Deploy from GitHub repo"**
 
-3. **Pilih repository `kilatbox`**
+3. **Pilih repository `Exora ID`**
    - Jika tidak muncul, klik "Configure GitHub App" untuk grant akses
 
 4. **Railway akan mulai deploy otomatis!**
@@ -112,7 +112,7 @@ git push -u origin main
 
 ### 4.1 Buka Settings
 
-1. **Klik service KilatBox** Anda (bukan database)
+1. **Klik service Exora ID** Anda (bukan database)
 2. **Klik tab "Variables"**
 
 ### 4.2 Tambah Variables
@@ -142,7 +142,7 @@ Value: Hml1ntk1WEUwyKr8lZZJkjFm1pQI4AEcx28LAvZL
 #### Variable 4: S3_BUCKET_NAME
 ```
 Name: S3_BUCKET_NAME
-Value: kilatbox-storage
+Value: Exora ID-storage
 ```
 
 #### Variable 5: JWT_SECRET
@@ -220,14 +220,14 @@ Seharusnya muncul tables:
 
 ### 6.1 Dapatkan URL
 
-1. **Klik service KilatBox** di Railway
+1. **Klik service Exora ID** di Railway
 2. **Klik tab "Settings"**
 3. **Scroll ke "Domains"**
 4. **Klik "Generate Domain"**
 
 Railway akan generate URL seperti:
 ```
-https://kilatbox-production.up.railway.app
+https://Exora ID-production.up.railway.app
 ```
 
 ### 6.2 Buka Aplikasi!
@@ -245,7 +245,7 @@ https://kilatbox-production.up.railway.app
 https://your-app.up.railway.app
 ```
 
-Seharusnya muncul halaman KilatBox!
+Seharusnya muncul halaman Exora ID!
 
 ### Test 2: Register User Baru
 1. Klik Register
@@ -275,12 +275,12 @@ Seharusnya return JSON success!
 
 1. **Di Railway Settings → Domains**
 2. **Klik "Custom Domain"**
-3. **Masukkan domain:** `kilatbox.yourdomain.com`
+3. **Masukkan domain:** `Exora ID.yourdomain.com`
 4. **Update DNS di domain provider:**
 
 ```
 Type: CNAME
-Name: kilatbox
+Name: Exora ID
 Value: your-app.up.railway.app
 TTL: 3600
 ```
@@ -294,7 +294,7 @@ TTL: 3600
 
 ### Lihat Logs:
 1. Railway Dashboard
-2. Klik service KilatBox
+2. Klik service Exora ID
 3. Tab "Deployments"
 4. Klik deployment terakhir
 5. Lihat "Logs"
@@ -326,7 +326,7 @@ Tab "Metrics" untuk lihat:
 
 ### ❌ Error: CloudKilat Upload Failed
 - Verify credentials benar di environment variables
-- Pastikan bucket exists: `kilatbox-storage`
+- Pastikan bucket exists: `Exora ID-storage`
 - Check CloudKilat panel
 
 ### ❌ Error: 502 Bad Gateway
@@ -371,14 +371,14 @@ Setelah deploy sukses, share URL ke:
 
 **URL Format:**
 ```
-https://kilatbox-production.up.railway.app
+https://Exora ID-production.up.railway.app
 ```
 
 ---
 
 ## 🎉 SELAMAT!
 
-**Project KilatBox Anda sekarang LIVE di internet!**
+**Project Exora ID Anda sekarang LIVE di internet!**
 
 ### Apa yang Sudah Dicapai:
 ✅ Full-stack application deployed
@@ -409,4 +409,4 @@ https://kilatbox-production.up.railway.app
 
 ---
 
-*Generated for KilatBox Project - October 2025*
+*Generated for Exora ID Project - October 2025*

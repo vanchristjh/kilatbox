@@ -1,10 +1,10 @@
-# KilatBox Testing Script (PowerShell)
+# Exora ID Testing Script (PowerShell)
 # Test API endpoints via terminal
 
 $API_URL = "http://localhost:3000/api"
 
 Write-Host "`n═══════════════════════════════════════════" -ForegroundColor Cyan
-Write-Host "   KilatBox API Testing" -ForegroundColor Cyan
+Write-Host "   Exora ID API Testing" -ForegroundColor Cyan
 Write-Host "═══════════════════════════════════════════`n" -ForegroundColor Cyan
 
 # Test 1: Health Check
@@ -26,7 +26,7 @@ Write-Host "`n🧪 TEST 2: Register User" -ForegroundColor Yellow
 
 $registerData = @{
     username = "testuser"
-    email = "test@kilatbox.com"
+    email = "test@Exora ID.com"
     password = "Test123!@#"
 } | ConvertTo-Json
 
@@ -56,7 +56,7 @@ Start-Sleep -Seconds 1
 Write-Host "`n🧪 TEST 3: Login User" -ForegroundColor Yellow
 
 $loginData = @{
-    email = "test@kilatbox.com"
+    email = "test@Exora ID.com"
     password = "Test123!@#"
 } | ConvertTo-Json
 

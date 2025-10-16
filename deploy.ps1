@@ -1,8 +1,8 @@
-# KilatBox Quick Deploy Script
+# Exora ID Quick Deploy Script
 # Pilih platform hosting Anda
 
 Write-Host "================================" -ForegroundColor Cyan
-Write-Host "   KilatBox Deployment Helper   " -ForegroundColor Cyan
+Write-Host "   Exora ID Deployment Helper   " -ForegroundColor Cyan
 Write-Host "================================" -ForegroundColor Cyan
 Write-Host ""
 
@@ -23,7 +23,7 @@ switch ($choice) {
         Write-Host "1. Push code ke GitHub terlebih dahulu (pilih opsi 5 jika belum)" -ForegroundColor Yellow
         Write-Host "2. Buka: https://railway.app" -ForegroundColor Yellow
         Write-Host "3. Klik 'Start a New Project' -> 'Deploy from GitHub repo'" -ForegroundColor Yellow
-        Write-Host "4. Pilih repository KilatBox" -ForegroundColor Yellow
+        Write-Host "4. Pilih repository Exora ID" -ForegroundColor Yellow
         Write-Host "5. Tambah PostgreSQL: Klik 'New' -> 'Database' -> 'PostgreSQL'" -ForegroundColor Yellow
         Write-Host "6. Set Environment Variables di tab 'Variables'" -ForegroundColor Yellow
         Write-Host ""
@@ -31,7 +31,7 @@ switch ($choice) {
         Write-Host "CLOUDKILAT_S3_ENDPOINT=https://s3-id-jkt-1.kilatstorage.id"
         Write-Host "CLOUDKILAT_ACCESS_KEY=<your-key>"
         Write-Host "CLOUDKILAT_SECRET_KEY=<your-secret>"
-        Write-Host "S3_BUCKET_NAME=kilatbox-storage"
+        Write-Host "S3_BUCKET_NAME=Exora ID-storage"
         Write-Host "JWT_SECRET=<random-string>"
         Write-Host "NODE_ENV=production"
         Write-Host "PORT=3000"
@@ -51,7 +51,7 @@ switch ($choice) {
         Write-Host "3. Klik 'New +' -> 'Web Service'" -ForegroundColor Yellow
         Write-Host "4. Connect GitHub repository" -ForegroundColor Yellow
         Write-Host "5. Konfigurasi:" -ForegroundColor Yellow
-        Write-Host "   - Name: kilatbox"
+        Write-Host "   - Name: Exora ID"
         Write-Host "   - Environment: Node"
         Write-Host "   - Build Command: npm install"
         Write-Host "   - Start Command: npm start"
@@ -86,12 +86,12 @@ switch ($choice) {
             Write-Host ""
             Write-Host "Jalankan perintah berikut:" -ForegroundColor Yellow
             Write-Host "1. heroku login"
-            Write-Host "2. heroku create kilatbox"
+            Write-Host "2. heroku create Exora ID"
             Write-Host "3. heroku addons:create heroku-postgresql:mini"
             Write-Host "4. heroku config:set CLOUDKILAT_S3_ENDPOINT=https://s3-id-jkt-1.kilatstorage.id"
             Write-Host "5. heroku config:set CLOUDKILAT_ACCESS_KEY=<your-key>"
             Write-Host "6. heroku config:set CLOUDKILAT_SECRET_KEY=<your-secret>"
-            Write-Host "7. heroku config:set S3_BUCKET_NAME=kilatbox-storage"
+            Write-Host "7. heroku config:set S3_BUCKET_NAME=Exora ID-storage"
             Write-Host "8. heroku config:set JWT_SECRET=<random-string>"
             Write-Host "9. heroku config:set NODE_ENV=production"
             Write-Host "10. git push heroku main"
@@ -122,13 +122,13 @@ switch ($choice) {
             
             $envContent = @"
 # Database Password
-DB_PASSWORD=kilatbox_secure_password_123
+DB_PASSWORD=Exora ID_secure_password_123
 
 # CloudKilat Configuration
 CLOUDKILAT_S3_ENDPOINT=https://s3-id-jkt-1.kilatstorage.id
 CLOUDKILAT_ACCESS_KEY=your_access_key_here
 CLOUDKILAT_SECRET_KEY=your_secret_key_here
-S3_BUCKET_NAME=kilatbox-storage
+S3_BUCKET_NAME=Exora ID-storage
 
 # JWT Secret
 JWT_SECRET=your_jwt_secret_here
@@ -202,13 +202,13 @@ NODE_ENV=production
                 git init
                 Write-Host ""
                 
-                Write-Host "Masukkan URL GitHub repository (contoh: https://github.com/username/kilatbox.git):" -ForegroundColor Cyan
+                Write-Host "Masukkan URL GitHub repository (contoh: https://github.com/username/Exora ID.git):" -ForegroundColor Cyan
                 $repoUrl = Read-Host
                 
                 if ($repoUrl) {
                     git remote add origin $repoUrl
                     git add .
-                    git commit -m "Initial commit - KilatBox deployment ready"
+                    git commit -m "Initial commit - Exora ID deployment ready"
                     
                     Write-Host ""
                     Write-Host "Push ke GitHub? (Y/N)" -ForegroundColor Yellow

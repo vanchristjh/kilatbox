@@ -52,7 +52,7 @@ const features = Array.isArray(plan.features) ? ... : 'Default';
 
 ### **1. Setup Database** (Sekali saja)
 ```powershell
-psql -U postgres -d kilatbox -f schema.sql
+psql -U postgres -d Exora ID -f schema.sql
 ```
 
 ### **2. Start Server**
@@ -131,7 +131,7 @@ cp .env.example .env
 # Edit .env dengan credentials
 
 # 2. Setup database
-psql -U postgres -d kilatbox -f schema.sql
+psql -U postgres -d Exora ID -f schema.sql
 
 # 3. Start server
 npm start
@@ -149,7 +149,7 @@ http://your-domain.com/plans.html
 ### ❌ "Error memuat paket"
 ```powershell
 # Run schema lagi
-psql -U postgres -d kilatbox -f schema.sql
+psql -U postgres -d Exora ID -f schema.sql
 ```
 
 ### ❌ Button tidak work
@@ -162,7 +162,7 @@ psql -U postgres -d kilatbox -f schema.sql
 ### ❌ Server error 500
 ```powershell
 # Check database connection
-psql -U postgres -d kilatbox -c "SELECT COUNT(*) FROM subscription_plans;"
+psql -U postgres -d Exora ID -c "SELECT COUNT(*) FROM subscription_plans;"
 ```
 
 ---

@@ -1,4 +1,4 @@
-# 💳 Panduan Fitur Pembayaran KilatBox
+# 💳 Panduan Fitur Pembayaran Exora ID
 
 ## 📋 Daftar Isi
 1. [Overview](#overview)
@@ -277,7 +277,7 @@ Status berubah "completed" → User subscription updated → Redirect ke Dashboa
 
 Jalankan SQL migration:
 ```bash
-psql -U postgres -d kilatbox -f schema.sql
+psql -U postgres -d Exora ID -f schema.sql
 ```
 
 ### 2. Start Server
@@ -337,7 +337,7 @@ curl -X POST http://localhost:3000/api/payments/confirm/1 \
 
 **Bank:** BCA  
 **No. Rekening:** 1234567890  
-**Atas Nama:** KilatBox Indonesia
+**Atas Nama:** Exora ID Indonesia
 
 *Note: Ini adalah contoh, ganti dengan rekening real untuk production*
 

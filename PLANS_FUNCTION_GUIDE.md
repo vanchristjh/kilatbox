@@ -254,7 +254,7 @@ curl -X POST \
 ### **Masalah: Plans tidak muncul**
 **Solusi:**
 1. Pastikan database memiliki data di tabel `subscription_plans`
-2. Run migration: `psql -U postgres -d kilatbox -f schema.sql`
+2. Run migration: `psql -U postgres -d Exora ID -f schema.sql`
 3. Check API response di Network tab
 
 ### **Masalah: Upgrade gagal**

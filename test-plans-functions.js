@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * KilatBox Subscription Plans - Function Test
+ * Exora ID Subscription Plans - Function Test
  * Test semua fungsi di plans.html berfungsi dengan baik
  */
 
@@ -186,7 +186,7 @@ async function registerTestUser() {
 
 async function runTests() {
     log('\n' + '='.repeat(60), BLUE);
-    log('🧪 KILATBOX SUBSCRIPTION PLANS - FUNCTION TESTS', BLUE);
+    log('🧪 Exora ID SUBSCRIPTION PLANS - FUNCTION TESTS', BLUE);
     log('='.repeat(60) + '\n', BLUE);
 
     // Test 1: Public endpoint (no auth)

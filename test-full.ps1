@@ -1,17 +1,17 @@
-# Full Test Script for KilatBox
+# Full Test Script for Exora ID
 
 Write-Host "`n==================================" -ForegroundColor Cyan
-Write-Host "  KilatBox Registration Test" -ForegroundColor Cyan
+Write-Host "  Exora ID Registration Test" -ForegroundColor Cyan
 Write-Host "==================================" -ForegroundColor Cyan
 
 # Navigate to project directory
-Set-Location D:\PROJECT\ITB\kilatbox
+Set-Location D:\PROJECT\ITB\Exora ID
 
 Write-Host "`n1. Testing database connection..." -ForegroundColor Yellow
-psql -U postgres -d kilatbox -c "SELECT current_database(), current_user;"
+psql -U postgres -d Exora ID -c "SELECT current_database(), current_user;"
 
 Write-Host "`n2. Checking tables..." -ForegroundColor Yellow
-psql -U postgres -d kilatbox -c "\dt"
+psql -U postgres -d Exora ID -c "\dt"
 
 Write-Host "`n3. Server should be running on http://localhost:3000" -ForegroundColor Yellow
 Write-Host "   If not, run: .\start-server.ps1 in another terminal`n" -ForegroundColor Gray

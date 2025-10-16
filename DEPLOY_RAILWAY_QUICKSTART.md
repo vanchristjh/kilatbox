@@ -16,23 +16,23 @@
 
 1. **Buat repository baru di GitHub:**
    - Buka https://github.com/new
-   - Nama: `kilatbox` (atau nama lain)
+   - Nama: `Exora ID` (atau nama lain)
    - Set ke **Private** (recommended untuk production)
    - Jangan centang "Initialize with README" (sudah ada)
    - Klik "Create repository"
 
 2. **Push code ke GitHub:**
    ```powershell
-   # Di folder project KilatBox
+   # Di folder project Exora ID
    git init
    git add .
    git commit -m "Ready for deployment"
    git branch -M main
-   git remote add origin https://github.com/username/kilatbox.git
+   git remote add origin https://github.com/username/Exora ID.git
    git push -u origin main
    ```
 
-   Ganti `username/kilatbox.git` dengan URL repository Anda!
+   Ganti `username/Exora ID.git` dengan URL repository Anda!
 
 ### Step 2: Deploy ke Railway (5 menit)
 
@@ -44,7 +44,7 @@
 2. **Buat Project Baru:**
    - Klik **"Start a New Project"**
    - Pilih **"Deploy from GitHub repo"**
-   - Pilih repository **kilatbox** yang tadi dibuat
+   - Pilih repository **Exora ID** yang tadi dibuat
    - Railway akan mulai deploy otomatis
 
 3. **Tunggu Deploy Pertama:**
@@ -66,7 +66,7 @@
 
 ### Step 4: Set Environment Variables (2 menit)
 
-1. **Klik service KilatBox Anda**
+1. **Klik service Exora ID Anda**
 
 2. **Klik tab "Variables"**
 
@@ -91,7 +91,7 @@
 
    ```
    Variable Name: S3_BUCKET_NAME
-   Value: kilatbox-storage
+   Value: Exora ID-storage
    ```
 
    ```
@@ -136,17 +136,17 @@
 ### Step 6: Akses Aplikasi! 🎉
 
 1. **Dapatkan URL:**
-   - Klik service KilatBox di Railway
+   - Klik service Exora ID di Railway
    - Di bagian atas, klik ikon **"Settings"**
    - Scroll ke **"Domains"**
    - Railway akan generate URL seperti:
      ```
-     https://kilatbox-production.up.railway.app
+     https://Exora ID-production.up.railway.app
      ```
 
 2. **Buka di Browser:**
    - Klik URL tersebut atau copy ke browser
-   - Anda akan melihat halaman KilatBox!
+   - Anda akan melihat halaman Exora ID!
 
 3. **Test Aplikasi:**
    - Register akun baru
@@ -160,13 +160,13 @@
 
 1. **Di Railway Settings → Domains:**
    - Klik **"Custom Domain"**
-   - Masukkan domain Anda: `kilatbox.yourdomain.com`
+   - Masukkan domain Anda: `Exora ID.yourdomain.com`
 
 2. **Update DNS:**
    - Tambah CNAME record di domain provider Anda:
      ```
      Type: CNAME
-     Name: kilatbox (atau subdomain lain)
+     Name: Exora ID (atau subdomain lain)
      Value: [URL Railway Anda].up.railway.app
      ```
 
@@ -179,7 +179,7 @@
 ## 🔍 Monitoring & Logs
 
 ### Lihat Logs:
-1. Klik service KilatBox
+1. Klik service Exora ID
 2. Klik tab **"Deployments"**
 3. Klik deployment terakhir
 4. Lihat **"Logs"** untuk melihat output aplikasi
@@ -289,6 +289,6 @@ Setelah deploy berhasil:
 
 ---
 
-🎉 **Selamat! KilatBox Anda sudah live di internet!**
+🎉 **Selamat! Exora ID Anda sudah live di internet!**
 
 Share URL Anda dan mulai pakai! 🚀

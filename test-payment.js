@@ -372,7 +372,7 @@ async function testCancelPayment() {
 // Run All Tests
 async function runAllTests() {
   log('\n╔════════════════════════════════════════════════════════════╗', 'cyan');
-  log('║         KILATBOX PAYMENT FEATURE TEST SUITE                ║', 'cyan');
+  log('║         Exora ID PAYMENT FEATURE TEST SUITE                ║', 'cyan');
   log('╚════════════════════════════════════════════════════════════╝', 'cyan');
   
   const startTime = Date.now();

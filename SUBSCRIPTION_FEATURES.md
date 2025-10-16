@@ -1,8 +1,8 @@
-# 📋 Dokumentasi Fitur Subscription Plans - KilatBox
+# 📋 Dokumentasi Fitur Subscription Plans - Exora ID
 
 ## 🎯 Overview
 
-KilatBox kini memiliki 4 tier subscription plans yang memberikan berbagai fitur dan kapasitas storage berbeda:
+Exora ID kini memiliki 4 tier subscription plans yang memberikan berbagai fitur dan kapasitas storage berbeda:
 
 | Plan | Storage | Harga | Fitur |
 |------|---------|-------|-------|
@@ -285,7 +285,7 @@ Halaman untuk menampilkan semua subscription plans dan memungkinkan user untuk u
 
 ### 1. Run Database Migration
 ```bash
-psql -U postgres -d kilatbox_db -f kilatbox/schema.sql
+psql -U postgres -d Exora ID_db -f Exora ID/schema.sql
 ```
 
 ### 2. Verify Subscription Plans Created

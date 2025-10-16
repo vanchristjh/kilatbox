@@ -214,6 +214,6 @@ border: 1px solid rgba(255, 255, 255, 0.2);
 
 ---
 
-**Selamat menikmati tampilan baru KilatBox! 🎉**
+**Selamat menikmati tampilan baru Exora ID! 🎉**
 
 Built with modern web technologies and love ❤️

@@ -4,28 +4,28 @@ services:
   # PostgreSQL Database
   postgres:
     image: postgres:15-alpine
-    container_name: kilatbox-db
+    container_name: Exora ID-db
     environment:
-      POSTGRES_USER: kilatbox_user
+      POSTGRES_USER: Exora ID_user
       POSTGRES_PASSWORD: ${DB_PASSWORD:-changeme}
-      POSTGRES_DB: kilatbox
+      POSTGRES_DB: Exora ID
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
     networks:
-      - kilatbox-network
+      - Exora ID-network
     restart: unless-stopped
 
-  # KilatBox Application
+  # Exora ID Application
   app:
     build: .
-    container_name: kilatbox-app
+    container_name: Exora ID-app
     environment:
       NODE_ENV: production
       PORT: 3000
-      DATABASE_URL: postgres://kilatbox_user:${DB_PASSWORD:-changeme}@postgres:5432/kilatbox
+      DATABASE_URL: postgres://Exora ID_user:${DB_PASSWORD:-changeme}@postgres:5432/Exora ID
       CLOUDKILAT_S3_ENDPOINT: ${CLOUDKILAT_S3_ENDPOINT}
       CLOUDKILAT_ACCESS_KEY: ${CLOUDKILAT_ACCESS_KEY}
       CLOUDKILAT_SECRET_KEY: ${CLOUDKILAT_SECRET_KEY}
@@ -36,7 +36,7 @@ services:
     depends_on:
       - postgres
     networks:
-      - kilatbox-network
+      - Exora ID-network
     restart: unless-stopped
     volumes:
       - ./public:/app/public:ro
@@ -44,7 +44,7 @@ services:
   # Nginx (Optional - untuk production dengan SSL)
   # nginx:
   #   image: nginx:alpine
-  #   container_name: kilatbox-nginx
+  #   container_name: Exora ID-nginx
   #   ports:
   #     - "80:80"
   #     - "443:443"
@@ -54,12 +54,12 @@ services:
   #   depends_on:
   #     - app
   #   networks:
-  #     - kilatbox-network
+  #     - Exora ID-network
   #   restart: unless-stopped
 
 volumes:
   postgres_data:
 
 networks:
-  kilatbox-network:
+  Exora ID-network:
     driver: bridge

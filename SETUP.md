@@ -1,4 +1,4 @@
-# Panduan Setup KilatBox
+# Panduan Setup Exora ID
 
 ## 📋 Prerequisites
 
@@ -16,10 +16,10 @@ Pastikan Anda sudah menginstall:
 ```sql
 -- Buka PostgreSQL shell atau pgAdmin
 -- Buat database baru
-CREATE DATABASE kilatbox;
+CREATE DATABASE Exora ID;
 
--- Koneksi ke database kilatbox
-\c kilatbox
+-- Koneksi ke database Exora ID
+\c Exora ID
 
 -- Jalankan schema.sql
 -- Copy-paste isi dari file schema.sql atau jalankan:
@@ -33,13 +33,13 @@ CREATE DATABASE kilatbox;
 psql -U postgres
 
 # Buat database
-CREATE DATABASE kilatbox;
+CREATE DATABASE Exora ID;
 
 # Keluar
 \q
 
 # Import schema
-psql -U postgres -d kilatbox -f schema.sql
+psql -U postgres -d Exora ID -f schema.sql
 ```
 
 ### 2. Setup CloudKilat Storage
@@ -47,7 +47,7 @@ psql -U postgres -d kilatbox -f schema.sql
 1. Login ke [CloudKilat](https://panel.cloudkilat.com)
 2. Buka menu **Kilat Storage**
 3. Klik **Create Bucket**
-4. Beri nama bucket, misalnya: `kilatbox-storage`
+4. Beri nama bucket, misalnya: `Exora ID-storage`
 5. Catat informasi berikut:
    - **Endpoint**: `https://s3-id-jkt-1.kilatstorage.id`
    - **Access Key ID**: `00f40347ce0451733558`
@@ -70,13 +70,13 @@ Isi file `.env`:
 CLOUDKILAT_S3_ENDPOINT=https://s3-id-jkt-1.kilatstorage.id
 CLOUDKILAT_ACCESS_KEY=00f40347ce0451733558
 CLOUDKILAT_SECRET_KEY=isi_secret_key_anda
-S3_BUCKET_NAME=kilatbox-storage
+S3_BUCKET_NAME=Exora ID-storage
 
 # JWT Secret (ganti dengan string random yang aman)
 JWT_SECRET=ganti_dengan_string_random_yang_panjang_dan_aman
 
 # Database Configuration
-DATABASE_URL=postgres://postgres:password_anda@localhost:5432/kilatbox
+DATABASE_URL=postgres://postgres:password_anda@localhost:5432/Exora ID
 
 # Server Configuration
 PORT=3000
@@ -93,7 +93,7 @@ npm install
 
 ```powershell
 # Menggunakan psql
-psql -U postgres -d kilatbox -f schema.sql
+psql -U postgres -d Exora ID -f schema.sql
 
 # Atau jalankan manual SQL di pgAdmin
 ```
@@ -232,7 +232,7 @@ PORT=3001
 
 ```env
 NODE_ENV=production
-DATABASE_URL=postgres://user:pass@production-host:5432/kilatbox
+DATABASE_URL=postgres://user:pass@production-host:5432/Exora ID
 ```
 
 ### 2. Deploy ke VPS/Cloud
@@ -242,7 +242,7 @@ DATABASE_URL=postgres://user:pass@production-host:5432/kilatbox
 npm install -g pm2
 
 # Jalankan server dengan PM2
-pm2 start server.js --name kilatbox
+pm2 start server.js --name Exora ID
 
 # Auto-restart saat server reboot
 pm2 startup

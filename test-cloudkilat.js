@@ -75,7 +75,7 @@ async function testConnection() {
 
     // Test 3: Upload a test file
     console.log('🧪 Test 3: Uploading test file...');
-    const testContent = `KilatBox Test File
+    const testContent = `Exora ID Test File
 Created: ${new Date().toISOString()}
 This is a test file to verify CloudKilat S3 upload functionality.`;
 
@@ -86,7 +86,7 @@ This is a test file to verify CloudKilat S3 upload functionality.`;
       ContentType: 'text/plain',
       Metadata: {
         'test': 'true',
-        'created-by': 'kilatbox-test-script'
+        'created-by': 'Exora ID-test-script'
       }
     });
 
@@ -99,7 +99,7 @@ This is a test file to verify CloudKilat S3 upload functionality.`;
     console.log('✅ All tests passed!');
     console.log('');
     console.log('Your CloudKilat configuration is working correctly.');
-    console.log('You can now start the KilatBox server with: npm start');
+    console.log('You can now start the Exora ID server with: npm start');
     console.log('═══════════════════════════════════════════════');
 
   } catch (error) {

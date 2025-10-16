@@ -1,5 +1,5 @@
 -- Migration untuk menambahkan tabel payments
--- Jalankan: psql -U postgres -d kilatbox -f add_payments_table.sql
+-- Jalankan: psql -U postgres -d Exora ID -f add_payments_table.sql
 
 -- Tabel Payments
 CREATE TABLE IF NOT EXISTS payments (

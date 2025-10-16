@@ -1,4 +1,4 @@
-# KilatBox - Laporan Proyek
+# Exora ID - Laporan Proyek
 
 ## 📌 Informasi Proyek
 
@@ -69,7 +69,7 @@
 ## 📂 Struktur Proyek
 
 ```
-kilatbox/
+Exora ID/
 ├── server.js                 # Main server file
 ├── s3.js                     # CloudKilat S3 client configuration
 ├── package.json              # Dependencies
@@ -330,7 +330,7 @@ npm run dev
 
 ## 📝 Kesimpulan
 
-Proyek **KilatBox** berhasil diimplementasikan dengan semua fitur utama yang direncanakan:
+Proyek **Exora ID** berhasil diimplementasikan dengan semua fitur utama yang direncanakan:
 
 1. ✅ Sistem autentikasi lengkap dengan JWT
 2. ✅ Upload file ke CloudKilat Storage
@@ -367,4 +367,4 @@ Untuk pertanyaan atau bantuan:
 
 ---
 
-**KilatBox** - Cloud Storage Made Simple 🚀
+**Exora ID** - Cloud Storage Made Simple 🚀

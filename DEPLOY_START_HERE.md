@@ -1,4 +1,4 @@
-# 🚀 Cara Deploy KilatBox - Mulai Di Sini!
+# 🚀 Cara Deploy Exora ID - Mulai Di Sini!
 
 ## Pilihan Tercepat (Rekomendasi)
 
@@ -74,8 +74,8 @@ node generate-secret.js
 # 2. Push ke GitHub
 git init
 git add .
-git commit -m "Deploy KilatBox"
-git remote add origin https://github.com/username/kilatbox.git
+git commit -m "Deploy Exora ID"
+git remote add origin https://github.com/username/Exora ID.git
 git push -u origin main
 
 # 3. Buka Railway
@@ -96,7 +96,7 @@ Untuk hosting manapun, Anda perlu set 7 variables ini:
 CLOUDKILAT_S3_ENDPOINT=https://s3-id-jkt-1.kilatstorage.id
 CLOUDKILAT_ACCESS_KEY=<your-cloudkilat-access-key>
 CLOUDKILAT_SECRET_KEY=<your-cloudkilat-secret-key>
-S3_BUCKET_NAME=kilatbox-storage
+S3_BUCKET_NAME=Exora ID-storage
 JWT_SECRET=<generate-with-node-generate-secret.js>
 NODE_ENV=production
 PORT=3000
@@ -181,7 +181,7 @@ Setelah deploy:
 1. **Backup sebelum deploy!**
    ```powershell
    # Backup database
-   pg_dump kilatbox > backup.sql
+   pg_dump Exora ID > backup.sql
    ```
 
 2. **Test local dulu:**
@@ -212,7 +212,7 @@ Setelah deploy:
 2. **Check logs:**
    - Railway: Dashboard → Deployments → View Logs
    - Render: Dashboard → Logs
-   - VPS: `pm2 logs kilatbox`
+   - VPS: `pm2 logs Exora ID`
 
 3. **Common fixes:**
    - Restart aplikasi

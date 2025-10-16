@@ -83,7 +83,7 @@ async function testUpload() {
 }
 
 // Check if server is running first
-console.log('🚀 KilatBox Upload Test\n');
+console.log('🚀 Exora ID Upload Test\n');
 console.log('Checking if server is running on port 3000...\n');
 
 axios.get('http://localhost:3000/')

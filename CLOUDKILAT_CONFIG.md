@@ -1,4 +1,4 @@
-# ⚙️ Konfigurasi CloudKilat - KilatBox
+# ⚙️ Konfigurasi CloudKilat - Exora ID
 
 ## 📋 Informasi Akun CloudKilat
 
@@ -7,7 +7,7 @@
 Endpoint    : https://s3-id-jkt-1.kilatstorage.id
 Access Key  : 00f40347ce0451733558
 Secret Key  : [Anda perlu menambahkan Secret Key]
-Bucket Name : kilatbox-storage (atau sesuai yang Anda buat)
+Bucket Name : Exora ID-storage (atau sesuai yang Anda buat)
 Region      : id-jkt-1 (Jakarta, Indonesia)
 ```
 
@@ -23,7 +23,7 @@ Region      : id-jkt-1 (Jakarta, Indonesia)
 1. Klik menu **"Kilat Storage"** di sidebar
 2. Klik tombol **"Create Bucket"** atau **"Buat Bucket"**
 3. Isi form:
-   - **Bucket Name**: `kilatbox-storage` (atau nama lain yang unik)
+   - **Bucket Name**: `Exora ID-storage` (atau nama lain yang unik)
    - **Region**: Jakarta (id-jkt-1)
 4. Klik **"Create"**
 
@@ -51,13 +51,13 @@ Edit file `.env` dan isi dengan kredensial Anda:
 CLOUDKILAT_S3_ENDPOINT=https://s3-id-jkt-1.kilatstorage.id
 CLOUDKILAT_ACCESS_KEY=00f40347ce0451733558
 CLOUDKILAT_SECRET_KEY=PASTE_SECRET_KEY_ANDA_DISINI
-S3_BUCKET_NAME=kilatbox-storage
+S3_BUCKET_NAME=Exora ID-storage
 
 # JWT Secret (ganti dengan random string yang kuat)
-JWT_SECRET=kilatbox_jwt_secret_2024_change_this_in_production
+JWT_SECRET=Exora ID_jwt_secret_2024_change_this_in_production
 
 # Database Configuration
-DATABASE_URL=postgres://postgres:your_password@localhost:5432/kilatbox
+DATABASE_URL=postgres://postgres:your_password@localhost:5432/Exora ID
 
 # Server Configuration
 PORT=3000
@@ -87,7 +87,7 @@ http://localhost:3000
 ### Cek di CloudKilat Panel
 1. Login ke https://panel.cloudkilat.com
 2. Buka **Kilat Storage**
-3. Klik bucket `kilatbox-storage`
+3. Klik bucket `Exora ID-storage`
 4. File yang diupload akan muncul dengan struktur:
    ```
    /<user_id>/<timestamp>-<random>.ext
@@ -130,7 +130,7 @@ http://localhost:3000
 Setelah upload, file akan tersimpan dengan struktur:
 
 ```
-kilatbox-storage/
+Exora ID-storage/
 ├── 1/                          # User ID 1
 │   ├── 1729123456000-abc123.pdf
 │   ├── 1729123789000-def456.jpg
@@ -215,4 +215,4 @@ Jika mengalami masalah dengan CloudKilat:
 
 **✅ Konfigurasi Siap!**
 
-Setelah mengisi Secret Key di file `.env`, sistem KilatBox Anda siap digunakan dengan CloudKilat Storage! 🚀
+Setelah mengisi Secret Key di file `.env`, sistem Exora ID Anda siap digunakan dengan CloudKilat Storage! 🚀

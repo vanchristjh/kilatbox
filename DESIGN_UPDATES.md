@@ -1,7 +1,7 @@
-# 🎨 KilatBox - Modern UI Design Updates
+# 🎨 Exora ID - Modern UI Design Updates
 
 ## ✨ Overview
-KilatBox telah diperbarui dengan tampilan modern dan profesional yang terinspirasi dari best practices UI/UX startup teknologi terkini. Desain baru ini memberikan pengalaman pengguna yang lebih intuitif, menarik, dan responsif.
+Exora ID telah diperbarui dengan tampilan modern dan profesional yang terinspirasi dari best practices UI/UX startup teknologi terkini. Desain baru ini memberikan pengalaman pengguna yang lebih intuitif, menarik, dan responsif.
 
 ---
 
@@ -36,7 +36,7 @@ KilatBox telah diperbarui dengan tampilan modern dan profesional yang terinspira
 
 #### Footer
 - **3 Column Layout**:
-  - Tentang KilatBox
+  - Tentang Exora ID
   - Link Cepat
   - Kontak
 - **Modern Styling**: Glass effect dengan backdrop blur
@@ -261,17 +261,17 @@ Contributions welcome! Please:
 
 ## 📄 License
 
-© 2025 KilatBox - Built with ❤️
+© 2025 Exora ID - Built with ❤️
 
 ---
 
 ## 📞 Support
 
 Need help?
-- 📧 Email: support@kilatbox.com
+- 📧 Email: support@Exora ID.com
 - 💬 WhatsApp: +62 812 XXXX XXXX
 - 📚 Documentation: See README.md files
 
 ---
 
-**Enjoy the new beautiful KilatBox! 🎉**
+**Enjoy the new beautiful Exora ID! 🎉**

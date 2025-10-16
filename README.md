@@ -1,14 +1,20 @@
-# KilatBox - Sistem Manajemen File Berbasis Cloud 🚀
+# Exora ID - Platf## 📋 Deskripsi Proyek
+
+**Exora ID** adalah platform manajemen file berbasis cloud yang memungkinkan user untuk:
+- 📤 Upload file ke cloud storage (CloudKilat)
+- 📥 Download file dengan presigned URL
+- 🗑️ Hapus file dari storage
+- 📊 Monitor penggunaan storage real-timeajemen File Berbasis Cloud 🚀
 
 <div align="center">
 
-![KilatBox](https://img.shields.io/badge/KilatBox-Cloud%20Storage-blue?style=for-the-badge)
+![Exora ID](https://img.shields.io/badge/Exora%20ID-Cloud%20Storage-blue?style=for-the-badge)
 ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
 ![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
 
-**Sistem web modern untuk upload, download, dan hapus file menggunakan CloudKilat (Kilat Storage)**
+**Platform web modern untuk upload, download, dan manage file menggunakan CloudKilat Storage**
 
 [Quick Start](#-quick-start) • [Dokumentasi](#-dokumentasi) • [API Testing](#-api-testing) • [Demo](#-demo)
 
@@ -18,7 +24,7 @@
 
 ## � Deskripsi Proyek
 
-**KilatBox** adalah sistem manajemen file berbasis cloud yang memungkinkan user untuk:
+**Exora ID** adalah sistem manajemen file berbasis cloud yang memungkinkan user untuk:
 - 📤 Upload file ke cloud storage (CloudKilat)
 - 📥 Download file dengan presigned URL
 - 🗑️ Hapus file dari storage
@@ -67,14 +73,14 @@
 
 ```powershell
 # 1. Clone atau buka folder proyek
-cd d:\PROJECT\ITB\kilatbox
+cd d:\PROJECT\ITB\Exora ID
 
 # 2. Install dependencies (sudah dilakukan)
 npm install
 
 # 3. Setup database
-psql -U postgres -c "CREATE DATABASE kilatbox"
-psql -U postgres -d kilatbox -f schema.sql
+psql -U postgres -c "CREATE DATABASE Exora ID"
+psql -U postgres -d Exora ID -f schema.sql
 
 # 4. Copy dan edit environment variables
 copy .env.example .env
@@ -110,7 +116,7 @@ npm start
 ## 📁 Struktur Proyek
 
 ```
-kilatbox/
+Exora ID/
 ├─ server.js              # Server utama
 ├─ s3.js                  # Konfigurasi S3 client
 ├─ .env                   # Environment variables
@@ -130,7 +136,7 @@ kilatbox/
 ```
 
 ```
-kilatbox/
+Exora ID/
 ├── 📄 server.js                    # Main server & Express config
 ├── 📄 s3.js                        # CloudKilat S3 client setup
 ├── 📄 package.json                 # Dependencies & scripts
@@ -158,7 +164,7 @@ kilatbox/
     ├── QUICKSTART.md               # Quick start guide
     ├── API_TESTING.md              # API testing documentation
     ├── LAPORAN.md                  # Complete project report
-    └── KilatBox.postman_collection.json  # Postman collection
+    └── Exora ID.postman_collection.json  # Postman collection
 ```
 
 ---
@@ -208,11 +214,11 @@ GET    /api/health           # Health check
 
 ```powershell
 # Import Postman Collection
-# File: KilatBox.postman_collection.json
+# File: Exora ID.postman_collection.json
 ```
 
 1. Buka Postman
-2. Import `KilatBox.postman_collection.json`
+2. Import `Exora ID.postman_collection.json`
 3. Setup environment variable `base_url` = `http://localhost:3000`
 4. Test endpoints satu per satu
 
@@ -275,7 +281,7 @@ npm run dev  # Auto-reload dengan nodemon
 npm install -g pm2
 
 # Start with PM2
-pm2 start server.js --name kilatbox
+pm2 start server.js --name Exora ID
 
 # Auto-restart on server reboot
 pm2 startup
@@ -290,7 +296,7 @@ pm2 save
 
 #### Option 3: Heroku
 ```bash
-heroku create kilatbox
+heroku create Exora ID
 heroku config:set DATABASE_URL=...
 heroku config:set CLOUDKILAT_ACCESS_KEY=...
 git push heroku main
@@ -308,7 +314,7 @@ git push heroku main
 Get-Service postgresql*
 
 # Test connection
-psql -U postgres -d kilatbox
+psql -U postgres -d Exora ID
 ```
 
 ### S3 Connection Error
@@ -398,7 +404,7 @@ Butuh bantuan? Buka issue di GitHub atau hubungi via email.
 
 **Made with ❤️ using Node.js & CloudKilat**
 
-[⬆ Back to Top](#kilatbox---sistem-manajemen-file-berbasis-cloud-)
+[⬆ Back to Top](#Exora ID---sistem-manajemen-file-berbasis-cloud-)
 
 </div>
 

@@ -37,7 +37,7 @@
 
 3. **Isi Form:**
    ```
-   Bucket Name : kilatbox-storage
+   Bucket Name : Exora ID-storage
    Region      : Jakarta (id-jkt-1)
    Access      : Private
    ```
@@ -53,19 +53,19 @@
 psql -U postgres
 
 # 2. Buat database
-CREATE DATABASE kilatbox;
+CREATE DATABASE Exora ID;
 
 # 3. Keluar
 \q
 
 # 4. Import schema
-cd d:\PROJECT\ITB\kilatbox
-psql -U postgres -d kilatbox -f schema.sql
+cd d:\PROJECT\ITB\Exora ID
+psql -U postgres -d Exora ID -f schema.sql
 ```
 
 **Verifikasi:**
 ```powershell
-psql -U postgres -d kilatbox -c "\dt"
+psql -U postgres -d Exora ID -c "\dt"
 # Harus muncul tabel: users, files
 ```
 
@@ -84,13 +84,13 @@ notepad .env
 CLOUDKILAT_S3_ENDPOINT=https://s3-id-jkt-1.kilatstorage.id
 CLOUDKILAT_ACCESS_KEY=00f40347ce0451733558
 CLOUDKILAT_SECRET_KEY=PASTE_SECRET_KEY_ANDA_DISINI
-S3_BUCKET_NAME=kilatbox-storage
+S3_BUCKET_NAME=Exora ID-storage
 
 # JWT Secret (ganti dengan random string)
-JWT_SECRET=kilatbox_production_secret_key_2024
+JWT_SECRET=Exora ID_production_secret_key_2024
 
 # Database Configuration (sesuaikan password PostgreSQL)
-DATABASE_URL=postgres://postgres:your_postgres_password@localhost:5432/kilatbox
+DATABASE_URL=postgres://postgres:your_postgres_password@localhost:5432/Exora ID
 
 # Server Configuration
 PORT=3000
@@ -121,13 +121,13 @@ npm run test:cloudkilat
    Endpoint   : https://s3-id-jkt-1.kilatstorage.id
    Access Key : 00f40347ce0451733558
    Secret Key : ***xxxx
-   Bucket     : kilatbox-storage
+   Bucket     : Exora ID-storage
 
 🧪 Test 1: Listing buckets...
 ✅ Success! Found 1 bucket(s):
-   - kilatbox-storage
+   - Exora ID-storage
 
-🧪 Test 2: Listing objects in bucket: kilatbox-storage
+🧪 Test 2: Listing objects in bucket: Exora ID-storage
 ✅ Success! Found 0 object(s) in bucket
    (Bucket is empty - this is normal for a new setup)
 
@@ -138,7 +138,7 @@ npm run test:cloudkilat
 ✅ All tests passed!
 
 Your CloudKilat configuration is working correctly.
-You can now start the KilatBox server with: npm start
+You can now start the Exora ID server with: npm start
 ═══════════════════════════════════════════════
 ```
 
@@ -162,7 +162,7 @@ npm start
 ```
 ╔════════════════════════════════════════════╗
 ║                                            ║
-║         🚀 KilatBox Server Started        ║
+║         🚀 Exora ID Server Started        ║
 ║                                            ║
 ╚════════════════════════════════════════════╝
 
@@ -196,7 +196,7 @@ npm start
 
 4. **Verifikasi di CloudKilat:**
    - Login ke https://panel.cloudkilat.com
-   - Buka Kilat Storage → kilatbox-storage
+   - Buka Kilat Storage → Exora ID-storage
    - File Anda akan muncul di folder `/<user_id>/`
 
 ---
@@ -254,9 +254,9 @@ npm start
 Pastikan semua ini sudah dilakukan:
 
 - [ ] ✅ Secret Key sudah didapat dari CloudKilat Panel
-- [ ] ✅ Bucket `kilatbox-storage` sudah dibuat
+- [ ] ✅ Bucket `Exora ID-storage` sudah dibuat
 - [ ] ✅ PostgreSQL sudah running
-- [ ] ✅ Database `kilatbox` sudah dibuat
+- [ ] ✅ Database `Exora ID` sudah dibuat
 - [ ] ✅ Schema SQL sudah diimport (tabel users & files ada)
 - [ ] ✅ File `.env` sudah dikonfigurasi lengkap
 - [ ] ✅ Test CloudKilat berhasil (npm run test:cloudkilat)
@@ -280,16 +280,16 @@ npm run dev
 npm start
 
 # Cek database
-psql -U postgres -d kilatbox
+psql -U postgres -d Exora ID
 
 # Lihat tabel
-psql -U postgres -d kilatbox -c "\dt"
+psql -U postgres -d Exora ID -c "\dt"
 
 # Lihat data users
-psql -U postgres -d kilatbox -c "SELECT * FROM users;"
+psql -U postgres -d Exora ID -c "SELECT * FROM users;"
 
 # Lihat data files
-psql -U postgres -d kilatbox -c "SELECT * FROM files;"
+psql -U postgres -d Exora ID -c "SELECT * FROM files;"
 ```
 
 ---
@@ -338,7 +338,7 @@ psql -U postgres -d kilatbox -c "SELECT * FROM files;"
 
 ## 🎉 Selamat!
 
-Setelah semua step di atas selesai, sistem KilatBox Anda sudah siap digunakan! 🚀
+Setelah semua step di atas selesai, sistem Exora ID Anda sudah siap digunakan! 🚀
 
 **Next Steps:**
 - Upload berbagai jenis file untuk testing

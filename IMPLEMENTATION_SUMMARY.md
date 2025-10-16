@@ -1,4 +1,4 @@
-# 📝 SUMMARY - Implementasi Sistem Subscription KilatBox
+# 📝 SUMMARY - Implementasi Sistem Subscription Exora ID
 
 ## 🎯 Yang Sudah Dibuat
 
@@ -18,26 +18,26 @@ Berdasarkan gambar yang Anda berikan, saya telah mengimplementasikan sistem subs
 ## 📂 File-File yang Dibuat/Dimodifikasi
 
 ### 1. Database Schema
-- **File**: `kilatbox/schema.sql` ✅ MODIFIED
+- **File**: `Exora ID/schema.sql` ✅ MODIFIED
   - Tabel baru: `subscription_plans`, `user_subscriptions`, `shared_files`, `team_folders`
   - Update tabel: `users`, `files`
   - Data default: 4 subscription plans
 
 ### 2. Backend Routes (API Endpoints)
-- **File**: `kilatbox/routes/subscriptions.js` ✅ NEW
+- **File**: `Exora ID/routes/subscriptions.js` ✅ NEW
   - GET `/api/subscriptions/plans` - List semua plans
   - GET `/api/subscriptions/my-subscription` - Current subscription user
   - POST `/api/subscriptions/upgrade` - Upgrade/downgrade plan
   - GET `/api/subscriptions/check-feature/:feature` - Cek akses fitur
   - GET `/api/subscriptions/quota` - Cek quota storage
 
-- **File**: `kilatbox/routes/share.js` ✅ NEW (Pro+)
+- **File**: `Exora ID/routes/share.js` ✅ NEW (Pro+)
   - POST `/api/share/:fileId/share` - Share file dengan link
   - GET `/api/share/:shareToken` - Akses shared file
   - GET `/api/share/my-shares` - List file yang di-share
   - DELETE `/api/share/:shareToken` - Revoke share
 
-- **File**: `kilatbox/routes/team-folders.js` ✅ NEW (Business+)
+- **File**: `Exora ID/routes/team-folders.js` ✅ NEW (Business+)
   - POST `/api/team-folders` - Buat team folder
   - GET `/api/team-folders` - List team folders
   - GET `/api/team-folders/:folderId` - Detail folder
@@ -45,31 +45,31 @@ Berdasarkan gambar yang Anda berikan, saya telah mengimplementasikan sistem subs
   - DELETE `/api/team-folders/:folderId` - Hapus folder
   - POST/DELETE `/api/team-folders/:folderId/files/:fileId` - Manage files in folder
 
-- **File**: `kilatbox/routes/statistics.js` ✅ NEW (Business+)
+- **File**: `Exora ID/routes/statistics.js` ✅ NEW (Business+)
   - GET `/api/statistics/storage` - Storage statistics
   - GET `/api/statistics/files` - File statistics
   - GET `/api/statistics/shares` - Share statistics
   - GET `/api/statistics/activity` - Activity log
 
 ### 3. Middleware
-- **File**: `kilatbox/middleware/auth.js` ✅ MODIFIED
+- **File**: `Exora ID/middleware/auth.js` ✅ MODIFIED
   - `checkStorageQuota` - Cek quota sebelum upload
   - `checkFeature(featureName)` - Cek akses fitur berdasarkan plan
   - Export `authenticateToken` untuk compatibility
 
 ### 4. Frontend UI
-- **File**: `kilatbox/public/plans.html` ✅ NEW
+- **File**: `Exora ID/public/plans.html` ✅ NEW
   - Halaman subscription plans dengan design menarik
   - Menampilkan 4 tier plans sesuai gambar
   - Quota bar untuk current plan
   - Tombol upgrade/downgrade
   - Responsive design
 
-- **File**: `kilatbox/public/dashboard.html` ✅ MODIFIED
+- **File**: `Exora ID/public/dashboard.html` ✅ MODIFIED
   - Tambah link "Subscription Plans" di navbar
 
 ### 5. Server Configuration
-- **File**: `kilatbox/server.js` ✅ MODIFIED
+- **File**: `Exora ID/server.js` ✅ MODIFIED
   - Register semua route baru:
     - `/api/subscriptions`
     - `/api/share`
@@ -77,24 +77,24 @@ Berdasarkan gambar yang Anda berikan, saya telah mengimplementasikan sistem subs
     - `/api/statistics`
 
 ### 6. Auth System Update
-- **File**: `kilatbox/routes/auth.js` ✅ MODIFIED
+- **File**: `Exora ID/routes/auth.js` ✅ MODIFIED
   - Auto-assign Free Plan saat user register
   - Update JWT token payload (userId → id)
   - Transaction handling untuk registration
 
 ### 7. Files Upload Update
-- **File**: `kilatbox/routes/files.js` ✅ MODIFIED
+- **File**: `Exora ID/routes/files.js` ✅ MODIFIED
   - Gunakan `checkStorageQuota` middleware
   - Hapus manual quota check (sudah di middleware)
   - Update authenticateToken import
 
 ### 8. Documentation
-- **File**: `kilatbox/SUBSCRIPTION_FEATURES.md` ✅ NEW
+- **File**: `Exora ID/SUBSCRIPTION_FEATURES.md` ✅ NEW
   - Dokumentasi lengkap semua fitur subscription
   - API endpoints dengan contoh request/response
   - Usage examples
 
-- **File**: `kilatbox/SETUP_SUBSCRIPTION.md` ✅ NEW
+- **File**: `Exora ID/SETUP_SUBSCRIPTION.md` ✅ NEW
   - Guide setup dan testing step-by-step
   - Test scenarios untuk setiap fitur
   - Troubleshooting guide
@@ -106,12 +106,12 @@ Berdasarkan gambar yang Anda berikan, saya telah mengimplementasikan sistem subs
 
 ### 1. Setup Database
 ```bash
-psql -U postgres -d kilatbox_db -f kilatbox/schema.sql
+psql -U postgres -d Exora ID_db -f Exora ID/schema.sql
 ```
 
 ### 2. Start Server
 ```bash
-cd kilatbox
+cd Exora ID
 npm start
 ```
 
@@ -279,7 +279,7 @@ team_folders (1) ←→ (N) files
 
 ## 🎉 Hasil Akhir
 
-Project KilatBox sekarang memiliki:
+Project Exora ID sekarang memiliki:
 
 ✅ **4 Tier Subscription Plans** persis seperti gambar
 ✅ **Dynamic Storage Quota** per plan

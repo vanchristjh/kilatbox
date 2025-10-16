@@ -2,12 +2,12 @@
 
 ## 1️⃣ Setup Database (WAJIB!)
 ```bash
-psql -U postgres -d kilatbox_db -f kilatbox/schema.sql
+psql -U postgres -d Exora ID_db -f Exora ID/schema.sql
 ```
 
 ## 2️⃣ Start Server
 ```bash
-cd kilatbox
+cd Exora ID
 npm start
 ```
 
@@ -93,4 +93,4 @@ WHERE us.is_active=TRUE;
 ```
 
 ## ✅ Done!
-Sistem subscription KilatBox siap digunakan! 🎉
+Sistem subscription Exora ID siap digunakan! 🎉
