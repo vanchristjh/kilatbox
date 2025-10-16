@@ -989,17 +989,35 @@
         // Load user profile
         async function loadProfile() {
             try {
-                const response = await fetch(`${API_BASE_URL}/auth/me`, {
-                    headers: {
-                        'Authorization': `Bearer ${authToken}`
+                // Try to load from localStorage first
+                const storedUser = localStorage.getItem('user');
+                if (storedUser) {
+                    try {
+                        currentUser = JSON.parse(storedUser);
+                    } catch (e) {
+                        console.error('Error parsing stored user:', e);
                     }
-                });
+                }
                 
-                if (response.ok) {
-                    const result = await response.json();
-                    
-                    // Handle different response formats
-                    currentUser = result.data?.user || result.data || result;
+                // If no stored user, decode from token
+                if (!currentUser && authToken) {
+                    try {
+                        const payload = JSON.parse(atob(authToken.split('.')[1]));
+                        currentUser = {
+                            id: payload.id,
+                            email: payload.email,
+                            name: payload.name
+                        };
+                    } catch (e) {
+                        console.error('Error decoding token:', e);
+                        // Token invalid
+                        localStorage.removeItem('token');
+                        localStorage.removeItem('user');
+                        alert('⚠️ Sesi Anda telah berakhir. Silakan login kembali.');
+                        window.location.href = 'index.html';
+                        return;
+                    }
+                }
                     
                     // Update all profile fields with fallbacks
                     const userName = currentUser.name || currentUser.fullname || 'User';
@@ -1038,14 +1056,6 @@
                     
                     // Load subscription plan
                     await loadSubscription();
-                } else if (response.status === 401) {
-                    // Token invalid or expired
-                    localStorage.removeItem('token');
-                    alert('⚠️ Sesi Anda telah berakhir. Silakan login kembali.');
-                    window.location.href = 'index.html';
-                } else {
-                    throw new Error('Failed to load profile');
-                }
             } catch (error) {
                 console.error('Error loading profile:', error);
                 // Don't show alert, just log error

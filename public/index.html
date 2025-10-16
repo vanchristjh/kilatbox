@@ -864,14 +864,16 @@
                 
                 const data = await response.json();
                 
-                if (response.ok) {
-                    localStorage.setItem('token', data.token);
+                if (response.ok && data.success) {
+                    // Save token and user data
+                    localStorage.setItem('token', data.data.token);
+                    localStorage.setItem('user', JSON.stringify(data.data.user));
                     showAlert('Login berhasil! Mengalihkan...', 'success');
                     setTimeout(() => {
                         window.location.href = 'dashboard.html';
                     }, 1000);
                 } else {
-                    showAlert(data.error || 'Login gagal', 'danger');
+                    showAlert(data.message || data.error || 'Login gagal', 'danger');
                 }
             } catch (error) {
                 showAlert('Terjadi kesalahan: ' + error.message, 'danger');
